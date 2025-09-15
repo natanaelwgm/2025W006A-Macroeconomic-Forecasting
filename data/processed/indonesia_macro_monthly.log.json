@@ -1,0 +1,50 @@
+{
+  "manifest": "scratchpad/wip-real-data-1/manifest.json",
+  "target": {
+    "workbook": "v2/data/actual/Macro_Datasets_Y Vars.xlsx",
+    "sheet": "CPI - Monthly",
+    "rows": 679
+  },
+  "exog": [
+    {
+      "name": "x_jibor",
+      "workbook": "v2/data/actual/Macro_Datasets_X_Vars.xlsx",
+      "sheet": "JIBOR - Monthly",
+      "rows": 356
+    },
+    {
+      "name": "x_ipi",
+      "workbook": "v2/data/actual/Macro_Datasets_X_Vars.xlsx",
+      "sheet": "IPI - Monthly",
+      "rows": 315
+    },
+    {
+      "name": "x_pmi",
+      "workbook": "v2/data/actual/Macro_Datasets_X_Vars.xlsx",
+      "sheet": "PMI - Monthly",
+      "rows": 36
+    },
+    {
+      "name": "x_m2",
+      "workbook": "v2/data/actual/Macro_Datasets_X_Vars.xlsx",
+      "sheet": "Money Supply - Monthly",
+      "rows": 689
+    },
+    {
+      "name": "x_jci",
+      "workbook": "v2/data/actual/Macro_Datasets_X_Vars.xlsx",
+      "sheet": "Stock Index - Monthly",
+      "rows": 508
+    },
+    {
+      "name": "x_usd_idr",
+      "workbook": "v2/data/actual/Macro_Datasets_X_Vars.xlsx",
+      "sheet": "FX - Monthly",
+      "rows": 304
+    }
+  ],
+  "output": "v2/data/processed/indonesia_macro_monthly.csv",
+  "first_date": "1969-01-28",
+  "last_date": "2025-07-28",
+  "row_count": 679
+}

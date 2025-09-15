@@ -1,0 +1,34 @@
+{
+  "base": {
+    "target_id": "y",
+    "frequency": "M",
+    "horizons": [1, 10],
+    "strategy": "frozen",
+    "as_of_date": "2025-08-31",
+    "train": { "start": "2010-01-31", "end": "2019-12-31" },
+    "test": { "start": "2020-01-31", "end": "2025-07-31" },
+    "data": {
+      "path": "v2/data/synthetic/synthetic_monthly.csv",
+      "date_col": "date"
+    },
+    "features": {
+      "target_lags": [0],
+      "exog": { "x1": { "lags": [0,1] }, "x2": { "lags": [0,1] }, "x3": { "lags": [0,1] } }
+    },
+    "output": { "dir": "v2/outputs" }
+  },
+  "runs": [
+    { "model": { "name": "Linear" } },
+    { "model": { "name": "Ridge", "params": { "alpha": 1.0 } } },
+    { "model": { "name": "Ridge", "params": { "alpha": 10.0 } } },
+    { "model": { "name": "Lasso", "params": { "alpha": 0.5, "max_iter": 400 } } },
+    { "model": { "name": "Lasso", "params": { "alpha": 1.0, "max_iter": 400 } } },
+    { "model": { "name": "ElasticNet", "params": { "alpha": 1.0, "l1_ratio": 0.5, "max_iter": 400 } } },
+    { "model": { "name": "ElasticNet", "params": { "alpha": 0.5, "l1_ratio": 0.3, "max_iter": 400 } } },
+    { "model": { "name": "StandardizedLinear" } },
+    { "model": { "name": "StandardizedRidge", "params": { "alpha": 1.0 } } },
+    { "model": { "name": "Huber", "params": { "delta": 1.0, "max_iter": 200 } } },
+    { "model": { "name": "ElasticNetGrid", "params": { "alpha_grid": [0.1, 0.5, 1.0, 2.0], "l1_ratio_grid": [0.2, 0.5, 0.8], "val_frac": 0.2, "max_iter": 400 } } }
+  ]
+}
+

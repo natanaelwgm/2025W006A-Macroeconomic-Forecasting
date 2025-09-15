@@ -1,0 +1,41 @@
+{
+  "target_id": "cpi_yoy",
+  "frequency": "M",
+  "horizons": [1, 2, 3],
+  "strategy": "refit",
+  "train": { "start": "2005-01-31", "end": "2019-12-31" },
+  "test": { "start": "2020-01-31", "end": "2025-07-31" },
+  "data": {
+    "path": "data/processed/indonesia_macro_monthly.csv",
+    "date_col": "date"
+  },
+  "models_filter": [
+    "Tree",
+    "RandomForest",
+    "GradientBoosting",
+    "ExtraTrees",
+    "Bagging",
+    "StochasticGB",
+    "AR1",
+    "ARp"
+  ],
+  "features": {
+    "target_lags": [0, 1, 12],
+    "exog": { "__all__": { "lags": [0, 1, 12] } },
+    "sweep": {
+      "packs": ["none", "ta_basic"],
+      "normalize": [
+        {"method": "none"},
+        {"method": "zscore", "window": 12}
+      ],
+      "max_features": [80, 120],
+      "exog_combo_k": 5,
+      "exog_combo_limit": 12,
+      "exog_combo_names": [
+        "usd_idr", "jci", "money_supply", "policy_rate_7drr", "jibor_avg",
+        "yield_10y", "deposit_rate_1m", "deposit_rate_3m", "deposit_rate_6m", "deposit_rate_12m"
+      ]
+    }
+  },
+  "output": { "dir": "outputs" }
+}
