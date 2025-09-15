@@ -110,16 +110,16 @@ Average performance across all targets by model type:
 ### Forecast Visualizations
 
 #### 1. AR1 Model Forecast
-![AR1 Forecast](all_valid_y_variables-20250915-233358/visualizations/cpi_yoy_ar1_rank1.png)
+![AR1 Forecast](visualizations/cpi_yoy_ar1_rank1.png)
 
 #### 2. StochasticGB Model Forecast
-![StochasticGB Forecast](all_valid_y_variables-20250915-233358/visualizations/cpi_yoy_stochasticgb_rank2.png)
+![StochasticGB Forecast](visualizations/cpi_yoy_stochasticgb_rank2.png)
 
 #### 3. RandomForest Model Forecast
-![RandomForest Forecast](all_valid_y_variables-20250915-233358/visualizations/cpi_yoy_randomforest_rank3.png)
+![RandomForest Forecast](visualizations/cpi_yoy_randomforest_rank3.png)
 
 #### All Models Comparison
-![CPI Year-over-Year Comparison](all_valid_y_variables-20250915-233358/visualizations/cpi_yoy_comparison.png)
+![CPI Year-over-Year Comparison](visualizations/cpi_yoy_comparison.png)
 
 ---
 
@@ -207,16 +207,16 @@ Average performance across all targets by model type:
 ### Forecast Visualizations
 
 #### 1. AR1 Model Forecast
-![AR1 Forecast](all_valid_y_variables-20250915-233358/visualizations/deposit_rate_12m_ar1_rank1.png)
+![AR1 Forecast](visualizations/deposit_rate_12m_ar1_rank1.png)
 
 #### 2. ARp Model Forecast
-![ARp Forecast](all_valid_y_variables-20250915-233358/visualizations/deposit_rate_12m_arp_rank2.png)
+![ARp Forecast](visualizations/deposit_rate_12m_arp_rank2.png)
 
 #### 3. GradientBoosting Model Forecast
-![GradientBoosting Forecast](all_valid_y_variables-20250915-233358/visualizations/deposit_rate_12m_gradientboosting_rank3.png)
+![GradientBoosting Forecast](visualizations/deposit_rate_12m_gradientboosting_rank3.png)
 
 #### All Models Comparison
-![12-Month Deposit Rate Comparison](all_valid_y_variables-20250915-233358/visualizations/deposit_rate_12m_comparison.png)
+![12-Month Deposit Rate Comparison](visualizations/deposit_rate_12m_comparison.png)
 
 ---
 
@@ -304,16 +304,16 @@ Average performance across all targets by model type:
 ### Forecast Visualizations
 
 #### 1. AR1 Model Forecast
-![AR1 Forecast](all_valid_y_variables-20250915-233358/visualizations/deposit_rate_1m_ar1_rank1.png)
+![AR1 Forecast](visualizations/deposit_rate_1m_ar1_rank1.png)
 
 #### 2. ARp Model Forecast
-![ARp Forecast](all_valid_y_variables-20250915-233358/visualizations/deposit_rate_1m_arp_rank2.png)
+![ARp Forecast](visualizations/deposit_rate_1m_arp_rank2.png)
 
 #### 3. GradientBoosting Model Forecast
-![GradientBoosting Forecast](all_valid_y_variables-20250915-233358/visualizations/deposit_rate_1m_gradientboosting_rank3.png)
+![GradientBoosting Forecast](visualizations/deposit_rate_1m_gradientboosting_rank3.png)
 
 #### All Models Comparison
-![1-Month Deposit Rate Comparison](all_valid_y_variables-20250915-233358/visualizations/deposit_rate_1m_comparison.png)
+![1-Month Deposit Rate Comparison](visualizations/deposit_rate_1m_comparison.png)
 
 ---
 
@@ -401,16 +401,16 @@ Average performance across all targets by model type:
 ### Forecast Visualizations
 
 #### 1. AR1 Model Forecast
-![AR1 Forecast](all_valid_y_variables-20250915-233358/visualizations/deposit_rate_3m_ar1_rank1.png)
+![AR1 Forecast](visualizations/deposit_rate_3m_ar1_rank1.png)
 
 #### 2. ARp Model Forecast
-![ARp Forecast](all_valid_y_variables-20250915-233358/visualizations/deposit_rate_3m_arp_rank2.png)
+![ARp Forecast](visualizations/deposit_rate_3m_arp_rank2.png)
 
 #### 3. GradientBoosting Model Forecast
-![GradientBoosting Forecast](all_valid_y_variables-20250915-233358/visualizations/deposit_rate_3m_gradientboosting_rank3.png)
+![GradientBoosting Forecast](visualizations/deposit_rate_3m_gradientboosting_rank3.png)
 
 #### All Models Comparison
-![3-Month Deposit Rate Comparison](all_valid_y_variables-20250915-233358/visualizations/deposit_rate_3m_comparison.png)
+![3-Month Deposit Rate Comparison](visualizations/deposit_rate_3m_comparison.png)
 
 ---
 
@@ -498,16 +498,16 @@ Average performance across all targets by model type:
 ### Forecast Visualizations
 
 #### 1. AR1 Model Forecast
-![AR1 Forecast](all_valid_y_variables-20250915-233358/visualizations/deposit_rate_6m_ar1_rank1.png)
+![AR1 Forecast](visualizations/deposit_rate_6m_ar1_rank1.png)
 
 #### 2. ARp Model Forecast
-![ARp Forecast](all_valid_y_variables-20250915-233358/visualizations/deposit_rate_6m_arp_rank2.png)
+![ARp Forecast](visualizations/deposit_rate_6m_arp_rank2.png)
 
 #### 3. StochasticGB Model Forecast
-![StochasticGB Forecast](all_valid_y_variables-20250915-233358/visualizations/deposit_rate_6m_stochasticgb_rank3.png)
+![StochasticGB Forecast](visualizations/deposit_rate_6m_stochasticgb_rank3.png)
 
 #### All Models Comparison
-![6-Month Deposit Rate Comparison](all_valid_y_variables-20250915-233358/visualizations/deposit_rate_6m_comparison.png)
+![6-Month Deposit Rate Comparison](visualizations/deposit_rate_6m_comparison.png)
 
 ---
 
@@ -595,16 +595,16 @@ Average performance across all targets by model type:
 ### Forecast Visualizations
 
 #### 1. AR1 Model Forecast
-![AR1 Forecast](all_valid_y_variables-20250915-233358/visualizations/gdp_yoy_ar1_rank1.png)
+![AR1 Forecast](visualizations/gdp_yoy_ar1_rank1.png)
 
 #### 2. ARp Model Forecast
-![ARp Forecast](all_valid_y_variables-20250915-233358/visualizations/gdp_yoy_arp_rank2.png)
+![ARp Forecast](visualizations/gdp_yoy_arp_rank2.png)
 
 #### 3. GradientBoosting Model Forecast
-![GradientBoosting Forecast](all_valid_y_variables-20250915-233358/visualizations/gdp_yoy_gradientboosting_rank3.png)
+![GradientBoosting Forecast](visualizations/gdp_yoy_gradientboosting_rank3.png)
 
 #### All Models Comparison
-![GDP Year-over-Year Comparison](all_valid_y_variables-20250915-233358/visualizations/gdp_yoy_comparison.png)
+![GDP Year-over-Year Comparison](visualizations/gdp_yoy_comparison.png)
 
 ---
 
@@ -682,16 +682,16 @@ Average performance across all targets by model type:
 ### Forecast Visualizations
 
 #### 1. AR1 Model Forecast
-![AR1 Forecast](all_valid_y_variables-20250915-233358/visualizations/policy_rate_7drr_ar1_rank1.png)
+![AR1 Forecast](visualizations/policy_rate_7drr_ar1_rank1.png)
 
 #### 2. Tree Model Forecast
-![Tree Forecast](all_valid_y_variables-20250915-233358/visualizations/policy_rate_7drr_tree_rank2.png)
+![Tree Forecast](visualizations/policy_rate_7drr_tree_rank2.png)
 
 #### 3. GradientBoosting Model Forecast
-![GradientBoosting Forecast](all_valid_y_variables-20250915-233358/visualizations/policy_rate_7drr_gradientboosting_rank3.png)
+![GradientBoosting Forecast](visualizations/policy_rate_7drr_gradientboosting_rank3.png)
 
 #### All Models Comparison
-![Policy Rate (7DRR) Comparison](all_valid_y_variables-20250915-233358/visualizations/policy_rate_7drr_comparison.png)
+![Policy Rate (7DRR) Comparison](visualizations/policy_rate_7drr_comparison.png)
 
 ---
 
@@ -769,16 +769,16 @@ Average performance across all targets by model type:
 ### Forecast Visualizations
 
 #### 1. AR1 Model Forecast
-![AR1 Forecast](all_valid_y_variables-20250915-233358/visualizations/usd_idr_ar1_rank1.png)
+![AR1 Forecast](visualizations/usd_idr_ar1_rank1.png)
 
 #### 2. ARp Model Forecast
-![ARp Forecast](all_valid_y_variables-20250915-233358/visualizations/usd_idr_arp_rank2.png)
+![ARp Forecast](visualizations/usd_idr_arp_rank2.png)
 
 #### 3. GradientBoosting Model Forecast
-![GradientBoosting Forecast](all_valid_y_variables-20250915-233358/visualizations/usd_idr_gradientboosting_rank3.png)
+![GradientBoosting Forecast](visualizations/usd_idr_gradientboosting_rank3.png)
 
 #### All Models Comparison
-![USD/IDR Exchange Rate Comparison](all_valid_y_variables-20250915-233358/visualizations/usd_idr_comparison.png)
+![USD/IDR Exchange Rate Comparison](visualizations/usd_idr_comparison.png)
 
 ---
 
