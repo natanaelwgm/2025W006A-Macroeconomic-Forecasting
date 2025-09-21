@@ -1,0 +1,41 @@
+{
+  "target_id": "y",
+  "frequency": "M",
+  "horizons": [1, 2, 3],
+  "strategy": "frozen",
+  "as_of_date": "2025-08-31",
+  "train": { "start": "2010-01-31", "end": "2019-12-31" },
+  "test": { "start": "2020-01-31", "end": "2025-07-31" },
+  "data": {
+    "path": "v2/data/synthetic/synthetic_monthly.csv",
+    "date_col": "date",
+    "synthetic": {
+      "enabled": true,
+      "n_exog": 3,
+      "mode": "mixed",
+      "seasonal": true,
+      "break_at": "2018-01-31",
+      "missing_pct": 0.0,
+      "outliers_pct": 0.0,
+      "seed": 42
+    }
+  },
+  "model": { "name": "AR1", "params": {} },
+  "features": {
+    "target_lags": [1, 12],
+    "exog": { "__all__": { "lags": [0, 1] } },
+    "pack": "ta_basic",
+    "normalize": { "method": "zscore", "window": 12 },
+    "max_features": 80,
+    "sweep": {
+      "packs": ["none", "ta_basic"],
+      "normalize": [
+        {"method": "none"},
+        {"method": "zscore", "window": 12}
+      ],
+      "exog_combo_k": 3,
+      "exog_combo_limit": 10
+    }
+  },
+  "output": { "dir": "v2/outputs" }
+}

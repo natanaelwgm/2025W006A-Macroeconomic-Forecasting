@@ -1,0 +1,29 @@
+{
+  "target_id": "y",
+  "frequency": "M",
+  "horizons": [1, 3, 6],
+  "strategy": "frozen",
+  "as_of_date": "2025-08-31",
+  "train": { "start": "2010-01-31", "end": "2019-12-31" },
+  "test": { "start": "2020-01-31", "end": "2025-07-31" },
+  "data": {
+    "path": "data/synthetic/synthetic_monthly.csv",
+    "date_col": "date",
+    "synthetic": {
+      "enabled": true,
+      "n_exog": 3,
+      "mode": "mixed",
+      "seasonal": true,
+      "seed": 42
+    }
+  },
+  "model": { "name": "Linear", "params": {} },
+  "features": {
+    "target_lags": [1, 3],
+    "exog": {
+      "x1": { "lags": [0, 1] },
+      "x2": { "lags": [0] }
+    }
+  },
+  "output": { "dir": "outputs" }
+}
