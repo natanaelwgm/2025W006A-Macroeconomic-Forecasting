@@ -4,8 +4,8 @@ This document provides quick access to all enhanced performance reports generate
 
 ## 🎯 Latest Test Results
 
-### **2109 Model Test - All Y Variables** (September 22, 2025)
-**📁 [Enhanced Report](outputs/2109_model_test_all_y-20250922-004702/ENHANCED_REPORT.md)**
+### **2109 Model Test - All Y Variables** (September 22, 2025) 
+**📁 [Latest Enhanced Report](outputs/2109_model_test_all_y-20250922-005902/ENHANCED_REPORT.md)** ✅ **USD/IDR Fixed**
 
 **Key Findings:**
 - **🏆 Best Overall**: DFM2 model for CPI nowcasting (RMSE: 0.6013)

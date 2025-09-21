@@ -45,9 +45,9 @@ def create_monthly_csv():
     # Target variables mapping based on log.json
     target_sheets = {
         'cpi_yoy': 'CPI - Monthly',
-        'gdp_yoy': 'GDP - Monthly', 
-        'usd_idr': 'FX - Monthly',
-        'policy_rate_7drr': 'Policy Rate - Monthly',
+        'gdp_yoy': 'Real GDP Growth - Monthly', 
+        'usd_idr': 'Exchange Rate - Monthly',  # Fixed: should be from Y Variables file
+        'policy_rate_7drr': 'BI7DRR - Monthly',  # Fixed: correct sheet name
         'deposit_rate_1m': 'Deposit Rate 1M - Monthly',
         'deposit_rate_3m': 'Deposit Rate 3M - Monthly', 
         'deposit_rate_6m': 'Deposit Rate 6M - Monthly',
