@@ -48,10 +48,15 @@ venv.bak/
 ehthumbs.db
 Thumbs.db
 
-# Model outputs (keep enhanced reports but ignore large files)
+# Model outputs (keep reports and visualizations but ignore large files)
 outputs/*/
 !outputs/*/ENHANCED_REPORT.md
 !outputs/*/UNIFIED_REPORT.md
+!outputs/*/visualizations/
+!outputs/*/visualizations/*.png
+!outputs/*/visualizations/*.jpg
+!outputs/*/visualizations/*.jpeg
+!outputs/*/visualizations/*.svg
 model_library/
 *.pkl
 *.joblib

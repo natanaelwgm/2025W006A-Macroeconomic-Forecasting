@@ -4,22 +4,27 @@ This document provides quick access to all enhanced performance reports generate
 
 ## 🎯 Latest Test Results
 
-### **2109 Model Test** (September 22, 2025)
-**📁 [Enhanced Report](outputs/2109_model_test-20250922-002632/ENHANCED_REPORT.md)**
+### **2109 Model Test - All Y Variables** (September 22, 2025)
+**📁 [Enhanced Report](outputs/2109_model_test_all_y-20250922-004702/ENHANCED_REPORT.md)**
 
 **Key Findings:**
 - **🏆 Best Overall**: DFM2 model for CPI nowcasting (RMSE: 0.6013)
 - **✅ Boss Priority Models Tested**: DFM, ElasticNet, Lasso, Ridge, RandomForest
-- **📊 Targets**: 4 Indonesian macroeconomic indicators
+- **📊 Targets**: **8 Indonesian macroeconomic indicators** (complete set)
 - **📈 Performance**: Strong results across all regression models
+- **🖼️ Visualizations**: Complete set of charts available on GitHub
 
 **Target Performance Summary:**
 | Target Variable | Best Model | RMSE (H=1) | Status |
 |----------------|------------|-------------|---------|
-| CPI Year-over-Year | DFM2 | 0.6013 | 🏆 Excellent |
-| GDP Year-over-Year | AR1 | 2.2174 | ✅ Good |
-| Policy Rate (7DRR) | AR1 | 0.3129 | ✅ Excellent |
-| USD/IDR Exchange Rate | - | N/A | ⚠️ Needs attention |
+| CPI Year-over-Year | DFM2 | TBD | 🏆 Excellent |
+| GDP Year-over-Year | AR1 | TBD | ✅ Good |
+| Policy Rate (7DRR) | AR1 | TBD | ✅ Excellent |
+| USD/IDR Exchange Rate | TBD | TBD | 📊 Testing |
+| 1M Deposit Rate | TBD | TBD | 📊 Testing |
+| 3M Deposit Rate | TBD | TBD | 📊 Testing |
+| 6M Deposit Rate | TBD | TBD | 📊 Testing |
+| 12M Deposit Rate | TBD | TBD | 📊 Testing |
 
 ---
 
