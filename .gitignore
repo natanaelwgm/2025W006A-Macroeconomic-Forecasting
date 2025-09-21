@@ -48,8 +48,10 @@ venv.bak/
 ehthumbs.db
 Thumbs.db
 
-# Model outputs (keep structure but ignore large files)
+# Model outputs (keep enhanced reports but ignore large files)
 outputs/*/
+!outputs/*/ENHANCED_REPORT.md
+!outputs/*/UNIFIED_REPORT.md
 model_library/
 *.pkl
 *.joblib
@@ -83,3 +85,6 @@ temp/
 # Local configuration
 config/local.py
 .env.local
+
+# Internal documentation (exclude from GitHub)
+IMPLEMENTATION_TODO.md
