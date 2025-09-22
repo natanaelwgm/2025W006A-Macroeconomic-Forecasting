@@ -99,20 +99,37 @@ def recreate_csv_from_log():
     
     print(f"📅 Created date range: {len(date_index)} months")
     
-    # Extract target variable (CPI)
-    print("📈 Processing TARGET variable...")
-    target_info = log_data['target']
-    y_file = 'data/SMF_Datasets_Y Vars.xlsx'  # Use actual file name
+    # Extract ALL Y variables (not just CPI from log)
+    print("📈 Processing ALL Y VARIABLES...")
+    y_file = 'data/SMF_Datasets_Y Vars.xlsx'
     
-    cpi_data = extract_sheet_data(y_file, target_info['sheet'], 'cpi_yoy')
-    if cpi_data is not None:
-        combined_df = combined_df.join(cpi_data, how='left')
+    # All Y variables that your boss had in the original working setup
+    all_y_variables = {
+        'cpi_yoy': 'CPI - Monthly',
+        'gdp_yoy': 'Real GDP Growth - Monthly',
+        'usd_idr': 'Exchange Rate - Monthly', 
+        'policy_rate_7drr': 'BI7DRR - Monthly',
+        'deposit_rate_1m': 'Deposit Rate 1M - Monthly',
+        'deposit_rate_3m': 'Deposit Rate 3M - Monthly',
+        'deposit_rate_6m': 'Deposit Rate 6M - Monthly',
+        'deposit_rate_12m': 'Deposit Rate 12M - Monthly'
+    }
     
-    # Extract exogenous variables
+    for var_name, sheet_name in all_y_variables.items():
+        var_data = extract_sheet_data(y_file, sheet_name, var_name)
+        if var_data is not None:
+            combined_df = combined_df.join(var_data, how='left')
+    
+    # Extract exogenous variables (skip USD/IDR since it's already a Y variable)
     print("📊 Processing EXOGENOUS variables...")
     for exog_info in log_data['exog']:
         var_name = exog_info['name']  # e.g., 'x_jibor'
         clean_name = var_name.replace('x_', '')  # Remove 'x_' prefix for column name
+        
+        # Skip USD/IDR since we already have it as a Y variable
+        if clean_name == 'usd_idr':
+            print(f"    ⏭️  Skipping {clean_name} (already included as Y variable)")
+            continue
         
         # Map to our file names
         x_file = 'data/SMF_Datasets_X_Vars.xlsx'  # Use actual file name
@@ -124,9 +141,21 @@ def recreate_csv_from_log():
     # Reset index to make date a column
     combined_df = combined_df.reset_index()
     
-    # Reorder columns to match expected structure
-    expected_cols = ['date', 'cpi_yoy', 'jibor', 'ipi', 'pmi', 'm2', 'jci', 'usd_idr']
-    available_cols = ['date'] + [col for col in expected_cols[1:] if col in combined_df.columns]
+    # Reorder columns to match expected structure (all Y variables + exogenous)
+    expected_y_cols = ['cpi_yoy', 'gdp_yoy', 'usd_idr', 'policy_rate_7drr', 
+                       'deposit_rate_1m', 'deposit_rate_3m', 'deposit_rate_6m', 'deposit_rate_12m']
+    expected_x_cols = ['jibor', 'ipi', 'pmi', 'm2', 'jci']
+    
+    available_cols = ['date']
+    # Add Y variables first
+    for col in expected_y_cols:
+        if col in combined_df.columns:
+            available_cols.append(col)
+    # Add X variables
+    for col in expected_x_cols:
+        if col in combined_df.columns:
+            available_cols.append(col)
+    
     combined_df = combined_df[available_cols]
     
     # Rename columns to match current naming convention
