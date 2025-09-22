@@ -1,7 +1,7 @@
 # Indonesia Macroeconomic Nowcasting Report
 
 **Generated:** 2025-09-22 09:39:45
-**Output Directory:** `boss_enhanced_plus_priority-20250922-013713`
+**Output Directory:** `outputs/comprehensive_nowcasting_analysis-20250922`
 
 ## Executive Summary
 
