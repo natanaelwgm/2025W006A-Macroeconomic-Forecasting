@@ -139,16 +139,16 @@ Average performance across all targets by model type:
 ### Forecast Visualizations
 
 #### 1. ExtraTrees Model Forecast
-![ExtraTrees Forecast](yield_10y_sun_backtest-20250924-214716/visualizations/yield_10y_extratrees_rank1.png)
+![ExtraTrees Forecast](visualizations/yield_10y_extratrees_rank1.png)
 
 #### 2. DFM2 Model Forecast
-![DFM2 Forecast](yield_10y_sun_backtest-20250924-214716/visualizations/yield_10y_dfm2_rank2.png)
+![DFM2 Forecast](visualizations/yield_10y_dfm2_rank2.png)
 
 #### 3. Lasso Model Forecast
-![Lasso Forecast](yield_10y_sun_backtest-20250924-214716/visualizations/yield_10y_lasso_rank3.png)
+![Lasso Forecast](visualizations/yield_10y_lasso_rank3.png)
 
 #### All Models Comparison
-![10-Year Bond Yield Comparison](yield_10y_sun_backtest-20250924-214716/visualizations/yield_10y_comparison.png)
+![10-Year Bond Yield Comparison](visualizations/yield_10y_comparison.png)
 
 ---
 
