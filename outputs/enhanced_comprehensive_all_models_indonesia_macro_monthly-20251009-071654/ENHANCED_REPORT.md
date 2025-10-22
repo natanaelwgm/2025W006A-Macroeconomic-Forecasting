@@ -118,16 +118,16 @@ Average performance across all targets by model type:
 ### Forecast Visualizations
 
 #### 1. XGBoost Model Forecast
-![XGBoost Forecast](enhanced_comprehensive_all_models_indonesia_macro_monthly-20251009-071654/visualizations/BI7DRR_xgboost_rank1.png)
+![XGBoost Forecast](visualizations/BI7DRR_xgboost_rank1.png)
 
 #### 2. XGBoost Model Forecast
-![XGBoost Forecast](enhanced_comprehensive_all_models_indonesia_macro_monthly-20251009-071654/visualizations/BI7DRR_xgboost_rank2.png)
+![XGBoost Forecast](visualizations/BI7DRR_xgboost_rank2.png)
 
 #### 3. XGBoost Model Forecast
-![XGBoost Forecast](enhanced_comprehensive_all_models_indonesia_macro_monthly-20251009-071654/visualizations/BI7DRR_xgboost_rank3.png)
+![XGBoost Forecast](visualizations/BI7DRR_xgboost_rank3.png)
 
 #### All Models Comparison
-![Bi7Drr Comparison](enhanced_comprehensive_all_models_indonesia_macro_monthly-20251009-071654/visualizations/BI7DRR_comparison.png)
+![Bi7Drr Comparison](visualizations/BI7DRR_comparison.png)
 
 ---
 
@@ -223,16 +223,16 @@ Average performance across all targets by model type:
 ### Forecast Visualizations
 
 #### 1. Naive Model Forecast
-![Naive Forecast](enhanced_comprehensive_all_models_indonesia_macro_monthly-20251009-071654/visualizations/CPI_naive_rank1.png)
+![Naive Forecast](visualizations/CPI_naive_rank1.png)
 
 #### 2. SeasonalNaive Model Forecast
-![SeasonalNaive Forecast](enhanced_comprehensive_all_models_indonesia_macro_monthly-20251009-071654/visualizations/CPI_seasonalnaive_rank2.png)
+![SeasonalNaive Forecast](visualizations/CPI_seasonalnaive_rank2.png)
 
 #### 3. AR1 Model Forecast
-![AR1 Forecast](enhanced_comprehensive_all_models_indonesia_macro_monthly-20251009-071654/visualizations/CPI_ar1_rank3.png)
+![AR1 Forecast](visualizations/CPI_ar1_rank3.png)
 
 #### All Models Comparison
-![Cpi Comparison](enhanced_comprehensive_all_models_indonesia_macro_monthly-20251009-071654/visualizations/CPI_comparison.png)
+![Cpi Comparison](visualizations/CPI_comparison.png)
 
 ---
 
@@ -328,16 +328,16 @@ Average performance across all targets by model type:
 ### Forecast Visualizations
 
 #### 1. SeasonalNaive Model Forecast
-![SeasonalNaive Forecast](enhanced_comprehensive_all_models_indonesia_macro_monthly-20251009-071654/visualizations/Deposit Rate 12M_seasonalnaive_rank1.png)
+![SeasonalNaive Forecast](visualizations/Deposit Rate 12M_seasonalnaive_rank1.png)
 
 #### 2. Naive Model Forecast
-![Naive Forecast](enhanced_comprehensive_all_models_indonesia_macro_monthly-20251009-071654/visualizations/Deposit Rate 12M_naive_rank2.png)
+![Naive Forecast](visualizations/Deposit Rate 12M_naive_rank2.png)
 
 #### 3. DFM2 Model Forecast
-![DFM2 Forecast](enhanced_comprehensive_all_models_indonesia_macro_monthly-20251009-071654/visualizations/Deposit Rate 12M_dfm2_rank3.png)
+![DFM2 Forecast](visualizations/Deposit Rate 12M_dfm2_rank3.png)
 
 #### All Models Comparison
-![Deposit Rate 12M Comparison](enhanced_comprehensive_all_models_indonesia_macro_monthly-20251009-071654/visualizations/Deposit Rate 12M_comparison.png)
+![Deposit Rate 12M Comparison](visualizations/Deposit Rate 12M_comparison.png)
 
 ---
 
@@ -433,16 +433,16 @@ Average performance across all targets by model type:
 ### Forecast Visualizations
 
 #### 1. Naive Model Forecast
-![Naive Forecast](enhanced_comprehensive_all_models_indonesia_macro_monthly-20251009-071654/visualizations/Deposit Rate 1M_naive_rank1.png)
+![Naive Forecast](visualizations/Deposit Rate 1M_naive_rank1.png)
 
 #### 2. SeasonalNaive Model Forecast
-![SeasonalNaive Forecast](enhanced_comprehensive_all_models_indonesia_macro_monthly-20251009-071654/visualizations/Deposit Rate 1M_seasonalnaive_rank2.png)
+![SeasonalNaive Forecast](visualizations/Deposit Rate 1M_seasonalnaive_rank2.png)
 
 #### 3. DFM2 Model Forecast
-![DFM2 Forecast](enhanced_comprehensive_all_models_indonesia_macro_monthly-20251009-071654/visualizations/Deposit Rate 1M_dfm2_rank3.png)
+![DFM2 Forecast](visualizations/Deposit Rate 1M_dfm2_rank3.png)
 
 #### All Models Comparison
-![Deposit Rate 1M Comparison](enhanced_comprehensive_all_models_indonesia_macro_monthly-20251009-071654/visualizations/Deposit Rate 1M_comparison.png)
+![Deposit Rate 1M Comparison](visualizations/Deposit Rate 1M_comparison.png)
 
 ---
 
@@ -538,16 +538,16 @@ Average performance across all targets by model type:
 ### Forecast Visualizations
 
 #### 1. Naive Model Forecast
-![Naive Forecast](enhanced_comprehensive_all_models_indonesia_macro_monthly-20251009-071654/visualizations/Deposit Rate 3M_naive_rank1.png)
+![Naive Forecast](visualizations/Deposit Rate 3M_naive_rank1.png)
 
 #### 2. SeasonalNaive Model Forecast
-![SeasonalNaive Forecast](enhanced_comprehensive_all_models_indonesia_macro_monthly-20251009-071654/visualizations/Deposit Rate 3M_seasonalnaive_rank2.png)
+![SeasonalNaive Forecast](visualizations/Deposit Rate 3M_seasonalnaive_rank2.png)
 
 #### 3. StandardizedRidge Model Forecast
-![StandardizedRidge Forecast](enhanced_comprehensive_all_models_indonesia_macro_monthly-20251009-071654/visualizations/Deposit Rate 3M_standardizedridge_rank3.png)
+![StandardizedRidge Forecast](visualizations/Deposit Rate 3M_standardizedridge_rank3.png)
 
 #### All Models Comparison
-![Deposit Rate 3M Comparison](enhanced_comprehensive_all_models_indonesia_macro_monthly-20251009-071654/visualizations/Deposit Rate 3M_comparison.png)
+![Deposit Rate 3M Comparison](visualizations/Deposit Rate 3M_comparison.png)
 
 ---
 
@@ -643,16 +643,16 @@ Average performance across all targets by model type:
 ### Forecast Visualizations
 
 #### 1. SeasonalNaive Model Forecast
-![SeasonalNaive Forecast](enhanced_comprehensive_all_models_indonesia_macro_monthly-20251009-071654/visualizations/Deposit Rate 6M_seasonalnaive_rank1.png)
+![SeasonalNaive Forecast](visualizations/Deposit Rate 6M_seasonalnaive_rank1.png)
 
 #### 2. Naive Model Forecast
-![Naive Forecast](enhanced_comprehensive_all_models_indonesia_macro_monthly-20251009-071654/visualizations/Deposit Rate 6M_naive_rank2.png)
+![Naive Forecast](visualizations/Deposit Rate 6M_naive_rank2.png)
 
 #### 3. StandardizedRidge Model Forecast
-![StandardizedRidge Forecast](enhanced_comprehensive_all_models_indonesia_macro_monthly-20251009-071654/visualizations/Deposit Rate 6M_standardizedridge_rank3.png)
+![StandardizedRidge Forecast](visualizations/Deposit Rate 6M_standardizedridge_rank3.png)
 
 #### All Models Comparison
-![Deposit Rate 6M Comparison](enhanced_comprehensive_all_models_indonesia_macro_monthly-20251009-071654/visualizations/Deposit Rate 6M_comparison.png)
+![Deposit Rate 6M Comparison](visualizations/Deposit Rate 6M_comparison.png)
 
 ---
 
@@ -748,16 +748,16 @@ Average performance across all targets by model type:
 ### Forecast Visualizations
 
 #### 1. LSTM Model Forecast
-![LSTM Forecast](enhanced_comprehensive_all_models_indonesia_macro_monthly-20251009-071654/visualizations/FX_lstm_rank1.png)
+![LSTM Forecast](visualizations/FX_lstm_rank1.png)
 
 #### 2. DFM Model Forecast
-![DFM Forecast](enhanced_comprehensive_all_models_indonesia_macro_monthly-20251009-071654/visualizations/FX_dfm_rank2.png)
+![DFM Forecast](visualizations/FX_dfm_rank2.png)
 
 #### 3. DFM2 Model Forecast
-![DFM2 Forecast](enhanced_comprehensive_all_models_indonesia_macro_monthly-20251009-071654/visualizations/FX_dfm2_rank3.png)
+![DFM2 Forecast](visualizations/FX_dfm2_rank3.png)
 
 #### All Models Comparison
-![Fx Comparison](enhanced_comprehensive_all_models_indonesia_macro_monthly-20251009-071654/visualizations/FX_comparison.png)
+![Fx Comparison](visualizations/FX_comparison.png)
 
 ---
 
@@ -853,16 +853,16 @@ Average performance across all targets by model type:
 ### Forecast Visualizations
 
 #### 1. SeasonalNaive Model Forecast
-![SeasonalNaive Forecast](enhanced_comprehensive_all_models_indonesia_macro_monthly-20251009-071654/visualizations/Govt Bond Yield 10 Yr_seasonalnaive_rank1.png)
+![SeasonalNaive Forecast](visualizations/Govt Bond Yield 10 Yr_seasonalnaive_rank1.png)
 
 #### 2. Naive Model Forecast
-![Naive Forecast](enhanced_comprehensive_all_models_indonesia_macro_monthly-20251009-071654/visualizations/Govt Bond Yield 10 Yr_naive_rank2.png)
+![Naive Forecast](visualizations/Govt Bond Yield 10 Yr_naive_rank2.png)
 
 #### 3. AR1 Model Forecast
-![AR1 Forecast](enhanced_comprehensive_all_models_indonesia_macro_monthly-20251009-071654/visualizations/Govt Bond Yield 10 Yr_ar1_rank3.png)
+![AR1 Forecast](visualizations/Govt Bond Yield 10 Yr_ar1_rank3.png)
 
 #### All Models Comparison
-![Govt Bond Yield 10 Yr Comparison](enhanced_comprehensive_all_models_indonesia_macro_monthly-20251009-071654/visualizations/Govt Bond Yield 10 Yr_comparison.png)
+![Govt Bond Yield 10 Yr Comparison](visualizations/Govt Bond Yield 10 Yr_comparison.png)
 
 ---
 
@@ -958,16 +958,16 @@ Average performance across all targets by model type:
 ### Forecast Visualizations
 
 #### 1. DFM2 Model Forecast
-![DFM2 Forecast](enhanced_comprehensive_all_models_indonesia_macro_monthly-20251009-071654/visualizations/JISDOR Exchange Rate_dfm2_rank1.png)
+![DFM2 Forecast](visualizations/JISDOR Exchange Rate_dfm2_rank1.png)
 
 #### 2. PLS1 Model Forecast
-![PLS1 Forecast](enhanced_comprehensive_all_models_indonesia_macro_monthly-20251009-071654/visualizations/JISDOR Exchange Rate_pls1_rank2.png)
+![PLS1 Forecast](visualizations/JISDOR Exchange Rate_pls1_rank2.png)
 
 #### 3. SeasonalNaive Model Forecast
-![SeasonalNaive Forecast](enhanced_comprehensive_all_models_indonesia_macro_monthly-20251009-071654/visualizations/JISDOR Exchange Rate_seasonalnaive_rank3.png)
+![SeasonalNaive Forecast](visualizations/JISDOR Exchange Rate_seasonalnaive_rank3.png)
 
 #### All Models Comparison
-![Jisdor Exchange Rate Comparison](enhanced_comprehensive_all_models_indonesia_macro_monthly-20251009-071654/visualizations/JISDOR Exchange Rate_comparison.png)
+![Jisdor Exchange Rate Comparison](visualizations/JISDOR Exchange Rate_comparison.png)
 
 ---
 
@@ -1073,16 +1073,16 @@ Average performance across all targets by model type:
 ### Forecast Visualizations
 
 #### 1. PLS1 Model Forecast
-![PLS1 Forecast](enhanced_comprehensive_all_models_indonesia_macro_monthly-20251009-071654/visualizations/Real GDP Growth_pls1_rank1.png)
+![PLS1 Forecast](visualizations/Real GDP Growth_pls1_rank1.png)
 
 #### 2. Naive Model Forecast
-![Naive Forecast](enhanced_comprehensive_all_models_indonesia_macro_monthly-20251009-071654/visualizations/Real GDP Growth_naive_rank2.png)
+![Naive Forecast](visualizations/Real GDP Growth_naive_rank2.png)
 
 #### 3. SeasonalNaive Model Forecast
-![SeasonalNaive Forecast](enhanced_comprehensive_all_models_indonesia_macro_monthly-20251009-071654/visualizations/Real GDP Growth_seasonalnaive_rank3.png)
+![SeasonalNaive Forecast](visualizations/Real GDP Growth_seasonalnaive_rank3.png)
 
 #### All Models Comparison
-![Real Gdp Growth Comparison](enhanced_comprehensive_all_models_indonesia_macro_monthly-20251009-071654/visualizations/Real GDP Growth_comparison.png)
+![Real Gdp Growth Comparison](visualizations/Real GDP Growth_comparison.png)
 
 ---
 

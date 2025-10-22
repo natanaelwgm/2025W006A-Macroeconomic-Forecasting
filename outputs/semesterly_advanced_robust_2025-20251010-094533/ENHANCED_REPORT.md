@@ -148,16 +148,16 @@ Average performance across all targets by model type:
 ### Forecast Visualizations
 
 #### 1. StandardizedRidge Model Forecast
-![StandardizedRidge Forecast](semesterly_advanced_robust_2025-20251010-094533/visualizations/CPI_standardizedridge_rank1.png)
+![StandardizedRidge Forecast](visualizations/CPI_standardizedridge_rank1.png)
 
 #### 2. PLS1 Model Forecast
-![PLS1 Forecast](semesterly_advanced_robust_2025-20251010-094533/visualizations/CPI_pls1_rank2.png)
+![PLS1 Forecast](visualizations/CPI_pls1_rank2.png)
 
 #### 3. Ridge Model Forecast
-![Ridge Forecast](semesterly_advanced_robust_2025-20251010-094533/visualizations/CPI_ridge_rank3.png)
+![Ridge Forecast](visualizations/CPI_ridge_rank3.png)
 
 #### All Models Comparison
-![Cpi Comparison](semesterly_advanced_robust_2025-20251010-094533/visualizations/CPI_comparison.png)
+![Cpi Comparison](visualizations/CPI_comparison.png)
 
 ---
 
@@ -268,16 +268,16 @@ Average performance across all targets by model type:
 ### Forecast Visualizations
 
 #### 1. Naive Model Forecast
-![Naive Forecast](semesterly_advanced_robust_2025-20251010-094533/visualizations/Govt Bond Yield 10 Yr_naive_rank1.png)
+![Naive Forecast](visualizations/Govt Bond Yield 10 Yr_naive_rank1.png)
 
 #### 2. SeasonalNaive Model Forecast
-![SeasonalNaive Forecast](semesterly_advanced_robust_2025-20251010-094533/visualizations/Govt Bond Yield 10 Yr_seasonalnaive_rank2.png)
+![SeasonalNaive Forecast](visualizations/Govt Bond Yield 10 Yr_seasonalnaive_rank2.png)
 
 #### 3. ElasticNetGrid Model Forecast
-![ElasticNetGrid Forecast](semesterly_advanced_robust_2025-20251010-094533/visualizations/Govt Bond Yield 10 Yr_elasticnetgrid_rank3.png)
+![ElasticNetGrid Forecast](visualizations/Govt Bond Yield 10 Yr_elasticnetgrid_rank3.png)
 
 #### All Models Comparison
-![Govt Bond Yield 10 Yr Comparison](semesterly_advanced_robust_2025-20251010-094533/visualizations/Govt Bond Yield 10 Yr_comparison.png)
+![Govt Bond Yield 10 Yr Comparison](visualizations/Govt Bond Yield 10 Yr_comparison.png)
 
 ---
 
@@ -358,16 +358,16 @@ Average performance across all targets by model type:
 ### Forecast Visualizations
 
 #### 1. SeasonalNaive Model Forecast
-![SeasonalNaive Forecast](semesterly_advanced_robust_2025-20251010-094533/visualizations/JISDOR Exchange Rate_seasonalnaive_rank1.png)
+![SeasonalNaive Forecast](visualizations/JISDOR Exchange Rate_seasonalnaive_rank1.png)
 
 #### 2. Naive Model Forecast
-![Naive Forecast](semesterly_advanced_robust_2025-20251010-094533/visualizations/JISDOR Exchange Rate_naive_rank2.png)
+![Naive Forecast](visualizations/JISDOR Exchange Rate_naive_rank2.png)
 
 #### 3. DFM Model Forecast
-![DFM Forecast](semesterly_advanced_robust_2025-20251010-094533/visualizations/JISDOR Exchange Rate_dfm_rank3.png)
+![DFM Forecast](visualizations/JISDOR Exchange Rate_dfm_rank3.png)
 
 #### All Models Comparison
-![Jisdor Exchange Rate Comparison](semesterly_advanced_robust_2025-20251010-094533/visualizations/JISDOR Exchange Rate_comparison.png)
+![Jisdor Exchange Rate Comparison](visualizations/JISDOR Exchange Rate_comparison.png)
 
 ---
 
@@ -458,16 +458,16 @@ Average performance across all targets by model type:
 ### Forecast Visualizations
 
 #### 1. Ridge Model Forecast
-![Ridge Forecast](semesterly_advanced_robust_2025-20251010-094533/visualizations/Real GDP Growth_ridge_rank1.png)
+![Ridge Forecast](visualizations/Real GDP Growth_ridge_rank1.png)
 
 #### 2. ElasticNet Model Forecast
-![ElasticNet Forecast](semesterly_advanced_robust_2025-20251010-094533/visualizations/Real GDP Growth_elasticnet_rank2.png)
+![ElasticNet Forecast](visualizations/Real GDP Growth_elasticnet_rank2.png)
 
 #### 3. RandomForest Model Forecast
-![RandomForest Forecast](semesterly_advanced_robust_2025-20251010-094533/visualizations/Real GDP Growth_randomforest_rank3.png)
+![RandomForest Forecast](visualizations/Real GDP Growth_randomforest_rank3.png)
 
 #### All Models Comparison
-![Real Gdp Growth Comparison](semesterly_advanced_robust_2025-20251010-094533/visualizations/Real GDP Growth_comparison.png)
+![Real Gdp Growth Comparison](visualizations/Real GDP Growth_comparison.png)
 
 ---
 
@@ -548,16 +548,16 @@ Average performance across all targets by model type:
 ### Forecast Visualizations
 
 #### 1. PLS1 Model Forecast
-![PLS1 Forecast](semesterly_advanced_robust_2025-20251010-094533/visualizations/Unemployment_pls1_rank1.png)
+![PLS1 Forecast](visualizations/Unemployment_pls1_rank1.png)
 
 #### 2. XGBoost Model Forecast
-![XGBoost Forecast](semesterly_advanced_robust_2025-20251010-094533/visualizations/Unemployment_xgboost_rank2.png)
+![XGBoost Forecast](visualizations/Unemployment_xgboost_rank2.png)
 
 #### 3. LSTM Model Forecast
-![LSTM Forecast](semesterly_advanced_robust_2025-20251010-094533/visualizations/Unemployment_lstm_rank3.png)
+![LSTM Forecast](visualizations/Unemployment_lstm_rank3.png)
 
 #### All Models Comparison
-![Unemployment Comparison](semesterly_advanced_robust_2025-20251010-094533/visualizations/Unemployment_comparison.png)
+![Unemployment Comparison](visualizations/Unemployment_comparison.png)
 
 ---
 
