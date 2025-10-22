@@ -268,16 +268,16 @@ Average performance across all targets by model type:
 ### Forecast Visualizations
 
 #### 1. Naive Model Forecast
-![Naive Forecast](visualizations/Govt Bond Yield 10 Yr_naive_rank1.png)
+![Naive Forecast](visualizations/Govt%20Bond%20Yield%2010%20Yr_naive_rank1.png)
 
 #### 2. SeasonalNaive Model Forecast
-![SeasonalNaive Forecast](visualizations/Govt Bond Yield 10 Yr_seasonalnaive_rank2.png)
+![SeasonalNaive Forecast](visualizations/Govt%20Bond%20Yield%2010%20Yr_seasonalnaive_rank2.png)
 
 #### 3. ElasticNetGrid Model Forecast
-![ElasticNetGrid Forecast](visualizations/Govt Bond Yield 10 Yr_elasticnetgrid_rank3.png)
+![ElasticNetGrid Forecast](visualizations/Govt%20Bond%20Yield%2010%20Yr_elasticnetgrid_rank3.png)
 
 #### All Models Comparison
-![Govt Bond Yield 10 Yr Comparison](visualizations/Govt Bond Yield 10 Yr_comparison.png)
+![Govt Bond Yield 10 Yr Comparison](visualizations/Govt%20Bond%20Yield%2010%20Yr_comparison.png)
 
 ---
 
@@ -358,16 +358,16 @@ Average performance across all targets by model type:
 ### Forecast Visualizations
 
 #### 1. SeasonalNaive Model Forecast
-![SeasonalNaive Forecast](visualizations/JISDOR Exchange Rate_seasonalnaive_rank1.png)
+![SeasonalNaive Forecast](visualizations/JISDOR%20Exchange%20Rate_seasonalnaive_rank1.png)
 
 #### 2. Naive Model Forecast
-![Naive Forecast](visualizations/JISDOR Exchange Rate_naive_rank2.png)
+![Naive Forecast](visualizations/JISDOR%20Exchange%20Rate_naive_rank2.png)
 
 #### 3. DFM Model Forecast
-![DFM Forecast](visualizations/JISDOR Exchange Rate_dfm_rank3.png)
+![DFM Forecast](visualizations/JISDOR%20Exchange%20Rate_dfm_rank3.png)
 
 #### All Models Comparison
-![Jisdor Exchange Rate Comparison](visualizations/JISDOR Exchange Rate_comparison.png)
+![Jisdor Exchange Rate Comparison](visualizations/JISDOR%20Exchange%20Rate_comparison.png)
 
 ---
 
@@ -458,16 +458,16 @@ Average performance across all targets by model type:
 ### Forecast Visualizations
 
 #### 1. Ridge Model Forecast
-![Ridge Forecast](visualizations/Real GDP Growth_ridge_rank1.png)
+![Ridge Forecast](visualizations/Real%20GDP%20Growth_ridge_rank1.png)
 
 #### 2. ElasticNet Model Forecast
-![ElasticNet Forecast](visualizations/Real GDP Growth_elasticnet_rank2.png)
+![ElasticNet Forecast](visualizations/Real%20GDP%20Growth_elasticnet_rank2.png)
 
 #### 3. RandomForest Model Forecast
-![RandomForest Forecast](visualizations/Real GDP Growth_randomforest_rank3.png)
+![RandomForest Forecast](visualizations/Real%20GDP%20Growth_randomforest_rank3.png)
 
 #### All Models Comparison
-![Real Gdp Growth Comparison](visualizations/Real GDP Growth_comparison.png)
+![Real Gdp Growth Comparison](visualizations/Real%20GDP%20Growth_comparison.png)
 
 ---
 

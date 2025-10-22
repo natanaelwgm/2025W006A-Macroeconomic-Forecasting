@@ -320,16 +320,16 @@ Average performance across all targets by model type:
 ### Forecast Visualizations
 
 #### 1. StandardizedRidge Model Forecast
-![StandardizedRidge Forecast](visualizations/Deposit Rate 12M_standardizedridge_rank1.png)
+![StandardizedRidge Forecast](visualizations/Deposit%20Rate%2012M_standardizedridge_rank1.png)
 
 #### 2. BVAR Model Forecast
-![BVAR Forecast](visualizations/Deposit Rate 12M_bvar_rank2.png)
+![BVAR Forecast](visualizations/Deposit%20Rate%2012M_bvar_rank2.png)
 
 #### 3. PLS1 Model Forecast
-![PLS1 Forecast](visualizations/Deposit Rate 12M_pls1_rank3.png)
+![PLS1 Forecast](visualizations/Deposit%20Rate%2012M_pls1_rank3.png)
 
 #### All Models Comparison
-![Deposit Rate 12M Comparison](visualizations/Deposit Rate 12M_comparison.png)
+![Deposit Rate 12M Comparison](visualizations/Deposit%20Rate%2012M_comparison.png)
 
 ---
 
@@ -414,16 +414,16 @@ Average performance across all targets by model type:
 ### Forecast Visualizations
 
 #### 1. Naive Model Forecast
-![Naive Forecast](visualizations/Deposit Rate 1M_naive_rank1.png)
+![Naive Forecast](visualizations/Deposit%20Rate%201M_naive_rank1.png)
 
 #### 2. SeasonalNaive Model Forecast
-![SeasonalNaive Forecast](visualizations/Deposit Rate 1M_seasonalnaive_rank2.png)
+![SeasonalNaive Forecast](visualizations/Deposit%20Rate%201M_seasonalnaive_rank2.png)
 
 #### 3. BVAR Model Forecast
-![BVAR Forecast](visualizations/Deposit Rate 1M_bvar_rank3.png)
+![BVAR Forecast](visualizations/Deposit%20Rate%201M_bvar_rank3.png)
 
 #### All Models Comparison
-![Deposit Rate 1M Comparison](visualizations/Deposit Rate 1M_comparison.png)
+![Deposit Rate 1M Comparison](visualizations/Deposit%20Rate%201M_comparison.png)
 
 ---
 
@@ -508,16 +508,16 @@ Average performance across all targets by model type:
 ### Forecast Visualizations
 
 #### 1. Naive Model Forecast
-![Naive Forecast](visualizations/Deposit Rate 3M_naive_rank1.png)
+![Naive Forecast](visualizations/Deposit%20Rate%203M_naive_rank1.png)
 
 #### 2. SeasonalNaive Model Forecast
-![SeasonalNaive Forecast](visualizations/Deposit Rate 3M_seasonalnaive_rank2.png)
+![SeasonalNaive Forecast](visualizations/Deposit%20Rate%203M_seasonalnaive_rank2.png)
 
 #### 3. BVAR Model Forecast
-![BVAR Forecast](visualizations/Deposit Rate 3M_bvar_rank3.png)
+![BVAR Forecast](visualizations/Deposit%20Rate%203M_bvar_rank3.png)
 
 #### All Models Comparison
-![Deposit Rate 3M Comparison](visualizations/Deposit Rate 3M_comparison.png)
+![Deposit Rate 3M Comparison](visualizations/Deposit%20Rate%203M_comparison.png)
 
 ---
 
@@ -602,16 +602,16 @@ Average performance across all targets by model type:
 ### Forecast Visualizations
 
 #### 1. Naive Model Forecast
-![Naive Forecast](visualizations/Deposit Rate 6M_naive_rank1.png)
+![Naive Forecast](visualizations/Deposit%20Rate%206M_naive_rank1.png)
 
 #### 2. SeasonalNaive Model Forecast
-![SeasonalNaive Forecast](visualizations/Deposit Rate 6M_seasonalnaive_rank2.png)
+![SeasonalNaive Forecast](visualizations/Deposit%20Rate%206M_seasonalnaive_rank2.png)
 
 #### 3. BVAR Model Forecast
-![BVAR Forecast](visualizations/Deposit Rate 6M_bvar_rank3.png)
+![BVAR Forecast](visualizations/Deposit%20Rate%206M_bvar_rank3.png)
 
 #### All Models Comparison
-![Deposit Rate 6M Comparison](visualizations/Deposit Rate 6M_comparison.png)
+![Deposit Rate 6M Comparison](visualizations/Deposit%20Rate%206M_comparison.png)
 
 ---
 
@@ -700,16 +700,16 @@ Average performance across all targets by model type:
 ### Forecast Visualizations
 
 #### 1. SeasonalNaive Model Forecast
-![SeasonalNaive Forecast](visualizations/Govt Bond Yield 10 Yr_seasonalnaive_rank1.png)
+![SeasonalNaive Forecast](visualizations/Govt%20Bond%20Yield%2010%20Yr_seasonalnaive_rank1.png)
 
 #### 2. Naive Model Forecast
-![Naive Forecast](visualizations/Govt Bond Yield 10 Yr_naive_rank2.png)
+![Naive Forecast](visualizations/Govt%20Bond%20Yield%2010%20Yr_naive_rank2.png)
 
 #### 3. AR1 Model Forecast
-![AR1 Forecast](visualizations/Govt Bond Yield 10 Yr_ar1_rank3.png)
+![AR1 Forecast](visualizations/Govt%20Bond%20Yield%2010%20Yr_ar1_rank3.png)
 
 #### All Models Comparison
-![Govt Bond Yield 10 Yr Comparison](visualizations/Govt Bond Yield 10 Yr_comparison.png)
+![Govt Bond Yield 10 Yr Comparison](visualizations/Govt%20Bond%20Yield%2010%20Yr_comparison.png)
 
 ---
 
@@ -784,16 +784,16 @@ Average performance across all targets by model type:
 ### Forecast Visualizations
 
 #### 1. SeasonalNaive Model Forecast
-![SeasonalNaive Forecast](visualizations/JISDOR Exchange Rate_seasonalnaive_rank1.png)
+![SeasonalNaive Forecast](visualizations/JISDOR%20Exchange%20Rate_seasonalnaive_rank1.png)
 
 #### 2. Naive Model Forecast
-![Naive Forecast](visualizations/JISDOR Exchange Rate_naive_rank2.png)
+![Naive Forecast](visualizations/JISDOR%20Exchange%20Rate_naive_rank2.png)
 
 #### 3. AR1 Model Forecast
-![AR1 Forecast](visualizations/JISDOR Exchange Rate_ar1_rank3.png)
+![AR1 Forecast](visualizations/JISDOR%20Exchange%20Rate_ar1_rank3.png)
 
 #### All Models Comparison
-![Jisdor Exchange Rate Comparison](visualizations/JISDOR Exchange Rate_comparison.png)
+![Jisdor Exchange Rate Comparison](visualizations/JISDOR%20Exchange%20Rate_comparison.png)
 
 ---
 
@@ -878,16 +878,16 @@ Average performance across all targets by model type:
 ### Forecast Visualizations
 
 #### 1. Ridge Model Forecast
-![Ridge Forecast](visualizations/Real GDP Growth_ridge_rank1.png)
+![Ridge Forecast](visualizations/Real%20GDP%20Growth_ridge_rank1.png)
 
 #### 2. XGBoost Model Forecast
-![XGBoost Forecast](visualizations/Real GDP Growth_xgboost_rank2.png)
+![XGBoost Forecast](visualizations/Real%20GDP%20Growth_xgboost_rank2.png)
 
 #### 3. ElasticNet Model Forecast
-![ElasticNet Forecast](visualizations/Real GDP Growth_elasticnet_rank3.png)
+![ElasticNet Forecast](visualizations/Real%20GDP%20Growth_elasticnet_rank3.png)
 
 #### All Models Comparison
-![Real Gdp Growth Comparison](visualizations/Real GDP Growth_comparison.png)
+![Real Gdp Growth Comparison](visualizations/Real%20GDP%20Growth_comparison.png)
 
 ---
 
