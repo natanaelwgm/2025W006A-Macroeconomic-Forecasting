@@ -1,0 +1,62 @@
+{
+  "run_name": "yield_10y_sun_backtest",
+  "targets": [
+    {
+      "id": "yield_10y",
+      "name": "10-Year Government Bond Yield (SUN 10Y)",
+      "horizons": [1, 3, 6, 9, 12]
+    }
+  ],
+  "frequency": "M",
+  "strategy": "frozen",
+  "train": { "start": "2008-01-31", "end": "2019-12-31" },
+  "test": { "start": "2020-01-31", "end": "2025-06-30" },
+  "data": {
+    "path": "/Users/schalkeanindya/2025W-006-SMF-NOWCASTING/v2/data/processed/indonesia_macro_monthly_all_targets.csv",
+    "date_col": "date"
+  },
+  "models_filter": [
+    "AR1",
+    "ARp",
+    "Linear",
+    "Ridge",
+    "Lasso",
+    "ElasticNet",
+    "ElasticNetGrid",
+    "StandardizedLinear",
+    "StandardizedRidge",
+    "Tree",
+    "RandomForest",
+    "GradientBoosting",
+    "ExtraTrees", 
+    "StochasticGB",
+    "DFM",
+    "DFM2",
+    "XGBoost",
+    "BVAR",
+    "GARCH",
+    "LSTM"
+  ],
+  "features": {
+    "target_lags": [1, 3, 6, 12],
+    "exog": { "__all__": { "lags": [0, 1, 3, 6] } },
+    "sweep": {
+      "packs": ["none", "ta_basic"],
+      "normalize": [
+        {"method": "none"},
+        {"method": "zscore", "window": 12},
+        {"method": "zscore", "window": 24}
+      ],
+      "max_features": [20, 30, 50],
+      "exog_combo_k": 4,
+      "exog_combo_limit": 8,
+      "exog_combo_names": [
+        "policy_rate_7drr", "usd_idr", "jci", "money_supply", 
+        "jibor_avg", "gdp_yoy", "cpi_yoy",
+        "deposit_rate_1m", "deposit_rate_3m", "deposit_rate_6m", "deposit_rate_12m",
+        "industrial_production_index", "purchasing_managers_index"
+      ]
+    }
+  },
+  "output": { "dir": "outputs" }
+}
