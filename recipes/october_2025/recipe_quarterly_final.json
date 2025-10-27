@@ -1,0 +1,85 @@
+{
+  "run_name": "corrected_comprehensive_quarterly_v2",
+  "targets": [
+    {
+      "id": "CPI",
+      "name": "Consumer Price Index",
+      "horizons": [1, 2, 4]
+    },
+    {
+      "id": "Real GDP Growth",
+      "name": "Real GDP Growth",
+      "horizons": [1, 2, 4]
+    },
+    {
+      "id": "FX",
+      "name": "USD/IDR Exchange Rate",
+      "horizons": [1, 2, 4]
+    },
+    {
+      "id": "BI7DRR",
+      "name": "BI 7-Day Reverse Repo Rate",
+      "horizons": [1, 2, 4]
+    },
+    {
+      "id": "Deposit Rate 1M",
+      "name": "1-Month Deposit Rate",
+      "horizons": [1, 2, 4]
+    },
+    {
+      "id": "Deposit Rate 3M",
+      "name": "3-Month Deposit Rate",
+      "horizons": [1, 2, 4]
+    },
+    {
+      "id": "Deposit Rate 6M",
+      "name": "6-Month Deposit Rate",
+      "horizons": [1, 2, 4]
+    },
+    {
+      "id": "Deposit Rate 12M",
+      "name": "12-Month Deposit Rate",
+      "horizons": [1, 2, 4]
+    },
+    {
+      "id": "Govt Bond Yield 10 Yr",
+      "name": "Govt Bond Yield 10 Yr",
+      "horizons": [1, 2, 4]
+    },
+    {
+      "id": "JISDOR Exchange Rate",
+      "name": "JISDOR Exchange Rate",
+      "horizons": [1, 2, 4]
+    }
+  ],
+  "frequency": "Q",
+  "strategy": "frozen",
+  "train": { "start": "2005-01-01", "end": "2019-12-31" },
+  "test": { "start": "2020-01-01", "end": "2025-07-31" },
+  "data": {
+    "path": "data/processed/indonesia_macro_quarterly_comprehensive.csv",
+    "date_col": "date"
+  },
+  "models_filter": [
+    "AR1", "Linear", "Ridge", "Lasso", "ElasticNet",
+    "Tree", "RandomForest", "XGBoost", "Naive", "SeasonalNaive",
+    "BVAR", "DFM", "DFM2", "PLS1", "Huber", "StandardizedLinear", "StandardizedRidge"
+  ],
+  "features": {
+    "target_lags": [1, 2, 4],
+    "exog": { "__all__": { "lags": [0, 1, 2] } },
+    "sweep": {
+      "packs": ["none"],
+      "normalize": [
+        {"method": "none"},
+        {"method": "zscore", "window": 4}
+      ],
+      "max_features": [10, 20]
+    }
+  },
+  "output": {
+    "dir": "outputs",
+    "save_forecasts": true,
+    "save_models": false
+  }
+}

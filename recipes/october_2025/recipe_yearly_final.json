@@ -1,0 +1,92 @@
+{
+  "run_name": "yearly_working_2025",
+  "targets": [
+    {
+      "id": "CPI",
+      "name": "Consumer Price Index",
+      "horizons": [1, 2, 3]
+    },
+    {
+      "id": "Real GDP Growth",
+      "name": "Real GDP Growth",
+      "horizons": [1, 2, 3]
+    },
+    {
+      "id": "FX",
+      "name": "USD/IDR Exchange Rate",
+      "horizons": [1, 2, 3]
+    },
+    {
+      "id": "BI7DRR",
+      "name": "BI 7-Day Reverse Repo Rate",
+      "horizons": [1, 2, 3]
+    },
+    {
+      "id": "Deposit Rate 1M",
+      "name": "1-Month Deposit Rate",
+      "horizons": [1, 2, 3]
+    },
+    {
+      "id": "Deposit Rate 3M",
+      "name": "3-Month Deposit Rate",
+      "horizons": [1, 2, 3]
+    },
+    {
+      "id": "Deposit Rate 6M",
+      "name": "6-Month Deposit Rate",
+      "horizons": [1, 2, 3]
+    },
+    {
+      "id": "Deposit Rate 12M",
+      "name": "12-Month Deposit Rate",
+      "horizons": [1, 2, 3]
+    },
+    {
+      "id": "Govt Bond Yield 10 Yr",
+      "name": "Govt Bond Yield 10 Yr",
+      "horizons": [1, 2, 3]
+    },
+    {
+      "id": "JISDOR Exchange Rate",
+      "name": "JISDOR Exchange Rate",
+      "horizons": [1, 2, 3]
+    },
+    {
+      "id": "informal_employment",
+      "name": "Informal Employment",
+      "horizons": [1, 2, 3]
+    }
+  ],
+  "frequency": "Y",
+  "strategy": "frozen",
+  "train": { "start": "2005-01-01", "end": "2019-12-31" },
+  "test": { "start": "2020-01-01", "end": "2023-12-31" },
+  "data": {
+    "path": "data/processed/indonesia_macro_yearly.csv",
+    "date_col": "date"
+  },
+  "models_filter": [
+    "AR1", "ARp", "Linear", "Ridge", "Lasso", "ElasticNet",
+    "BVAR", "LSTM", "MIDAS", "GARCH", "TVP", "ARIMA", "DNS", "NeuroGARCH",
+    "Tree", "RandomForest", "GradientBoosting", "ExtraTrees", "StochasticGB", "XGBoost", "Bagging",
+    "DFM", "DFM2", "PLS1", "Huber", "StandardizedLinear", "StandardizedRidge",
+    "Naive", "SeasonalNaive"
+  ],
+  "features": {
+    "target_lags": [1, 2, 3],
+    "exog": { "__all__": { "lags": [0, 1] } },
+    "sweep": {
+      "packs": ["none"],
+      "normalize": [
+        {"method": "none"},
+        {"method": "zscore", "window": 3}
+      ],
+      "max_features": [10, 20]
+    }
+  },
+  "output": {
+    "dir": "outputs",
+    "save_forecasts": true,
+    "save_models": false
+  }
+}

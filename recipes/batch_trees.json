@@ -1,0 +1,26 @@
+{
+  "base": {
+    "target_id": "y",
+    "frequency": "M",
+    "horizons": [1, 10],
+    "strategy": "frozen",
+    "as_of_date": "2025-08-31",
+    "train": { "start": "2010-01-31", "end": "2019-12-31" },
+    "test": { "start": "2020-01-31", "end": "2025-07-31" },
+    "data": {
+      "path": "v2/data/synthetic/synthetic_monthly.csv",
+      "date_col": "date"
+    },
+    "features": {
+      "target_lags": [0],
+      "exog": { "x1": { "lags": [0, 1] }, "x2": { "lags": [0, 1] } }
+    },
+    "output": { "dir": "v2/outputs" }
+  },
+  "runs": [
+    { "model": { "name": "Tree", "params": { "max_depth": 4, "min_samples_split": 8, "max_features": null } } },
+    { "model": { "name": "RandomForest", "params": { "n_estimators": 50, "max_depth": 4, "min_samples_split": 8, "max_features": "sqrt", "bootstrap": true } } },
+    { "model": { "name": "GradientBoosting", "params": { "n_estimators": 100, "learning_rate": 0.1, "max_depth": 2, "min_samples_split": 8 } } }
+  ]
+}
+
