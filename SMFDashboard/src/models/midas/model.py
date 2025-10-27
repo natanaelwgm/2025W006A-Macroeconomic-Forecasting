@@ -15,6 +15,18 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 from core.base import BaseModel, ModelSpec
 
+# Define at module level for registry discovery
+NAME = "MIDAS"
+SPEC = {
+    "frequency": "any",
+    "input": {
+        "target": {"lags": [1]},  # Basic AR term
+        "exog": {"__all__": {"lags": [0, 1, 2, 3, 6, 12]}}  # High-frequency exog
+    },
+    "strategies": ["frozen"],
+    "supports_horizons": "any"
+}
+
 
 class MIDASModel(BaseModel):
     """
@@ -24,17 +36,6 @@ class MIDASModel(BaseModel):
     - lag_max: Maximum lag for high-frequency variables
     - polynomial_order: Order of polynomial for distributed lags (default: 2)
     """
-    
-    NAME = "MIDAS"
-    SPEC = ModelSpec({
-        "frequency": "any",
-        "input": {
-            "target": {"lags": [1]},  # Basic AR term
-            "exog": {"__all__": {"lags": [0, 1, 2, 3, 6, 12]}}  # High-frequency exog
-        },
-        "strategies": ["frozen"],
-        "supports_horizons": "any"
-    })
     
     def __init__(self, lag_max: int = 12, polynomial_order: int = 2):
         self.lag_max = lag_max

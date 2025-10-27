@@ -15,6 +15,18 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 from core.base import BaseModel, ModelSpec
 
+# Define at module level for registry discovery
+NAME = "TVP"
+SPEC = {
+    "frequency": "any",
+    "input": {
+        "target": {"lags": [1, 3, 6]},
+        "exog": {"__all__": {"lags": [0, 1, 3]}}
+    },
+    "strategies": ["frozen"],
+    "supports_horizons": "any"
+}
+
 
 class TVPModel(BaseModel):
     """
@@ -24,17 +36,6 @@ class TVPModel(BaseModel):
     - state_variance: Variance of state transition (controls parameter evolution)
     - observation_variance: Variance of observation noise
     """
-    
-    NAME = "TVP"
-    SPEC = ModelSpec({
-        "frequency": "any",
-        "input": {
-            "target": {"lags": [1, 3, 6]},
-            "exog": {"__all__": {"lags": [0, 1, 3]}}
-        },
-        "strategies": ["frozen"],
-        "supports_horizons": "any"
-    })
     
     def __init__(self, state_variance: float = 0.01, observation_variance: float = 1.0):
         self.state_variance = state_variance

@@ -16,6 +16,18 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 from core.base import BaseModel, ModelSpec
 
+# Define at module level for registry discovery
+NAME = "NeuroGARCH"
+SPEC = {
+    "frequency": "any",
+    "input": {
+        "target": {"lags": [1, 3, 6, 12]},
+        "exog": {"__all__": {"lags": [0, 1, 3]}}
+    },
+    "strategies": ["frozen"],
+    "supports_horizons": "any"
+}
+
 
 class NeuroGARCHModel(BaseModel):
     """
@@ -27,18 +39,6 @@ class NeuroGARCHModel(BaseModel):
     - nn_hidden_layers: Number of hidden layers in neural network
     - nn_hidden_units: Number of units per hidden layer
     """
-    
-    NAME = "NeuroGARCH"
-    SPEC = ModelSpec({
-        "frequency": "any",
-        "input": {
-            "target": {"lags": [1, 3, 6, 12]},
-            "exog": {"__all__": {"lags": [0, 1, 3]}}
-        },
-        "strategies": ["frozen"],
-        "supports_horizons": "any"
-    })
-    
     def __init__(self, garch_p: int = 1, garch_q: int = 1, 
                  nn_hidden_layers: int = 2, nn_hidden_units: int = 10):
         self.garch_p = garch_p

@@ -15,6 +15,18 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 from core.base import BaseModel, ModelSpec
 
+# Define at module level for registry discovery
+NAME = "DNS"
+SPEC = {
+    "frequency": "any",
+    "input": {
+        "target": {"lags": [1, 3, 6, 12]},  # Yield lags
+        "exog": {"__all__": {"lags": [0, 1, 3]}}  # Macro variables
+    },
+    "strategies": ["frozen"],
+    "supports_horizons": "any"
+}
+
 
 class DNSModel(BaseModel):
     """
@@ -24,18 +36,6 @@ class DNSModel(BaseModel):
     - lambda_decay: Decay parameter for the Nelson-Siegel function
     - n_factors: Number of factors (default: 3 for level, slope, curvature)
     """
-    
-    NAME = "DNS"
-    SPEC = ModelSpec({
-        "frequency": "any",
-        "input": {
-            "target": {"lags": [1, 3, 6, 12]},  # Yield lags
-            "exog": {"__all__": {"lags": [0, 1, 3]}}  # Macro variables
-        },
-        "strategies": ["frozen"],
-        "supports_horizons": "any"
-    })
-    
     def __init__(self, lambda_decay: float = 0.0609, n_factors: int = 3):
         self.lambda_decay = lambda_decay
         self.n_factors = n_factors
