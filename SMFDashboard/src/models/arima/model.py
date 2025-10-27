@@ -8,7 +8,25 @@ MA terms (q>0) will be added in future iterations.
 import numpy as np
 from typing import Dict, List, Optional
 from sklearn.linear_model import LinearRegression
-from ..core.base import BaseModel, ModelSpec
+import sys
+from pathlib import Path
+
+# Fix import path - go up to src directory
+sys.path.insert(0, str(Path(__file__).parent.parent.parent))
+from core.base import BaseModel, ModelSpec
+
+
+# Define at module level for registry discovery
+NAME = "ARIMA"
+SPEC = {
+    "frequency": "any",
+    "input": {
+        "target": {"lags": []},  # ARIMA uses its own lag structure
+        "exog": {}  # No exogenous variables for baseline ARIMA
+    },
+    "strategies": ["frozen"],
+    "supports_horizons": "any"
+}
 
 
 class ARIMAModel(BaseModel):
@@ -20,18 +38,6 @@ class ARIMAModel(BaseModel):
     - d: Differencing order (number of times to difference)
     - q: MA order (currently must be 0, MA terms not yet implemented)
     """
-    
-    NAME = "ARIMA"
-    SPEC = ModelSpec({
-        "frequency": "any",
-        "input": {
-            "target": {"lags": []},  # ARIMA uses its own lag structure
-            "exog": {}  # No exogenous variables for baseline ARIMA
-        },
-        "strategies": ["frozen"],
-        "supports_horizons": "any"
-    })
-    
     def __init__(self, p: int = 1, d: int = 0, q: int = 0):
         if q != 0:
             raise ValueError("MA terms (q>0) not yet implemented. Use q=0.")

@@ -8,7 +8,12 @@ a state space framework with Kalman filtering.
 import numpy as np
 from typing import Dict, List
 from sklearn.linear_model import LinearRegression
-from ..core.base import BaseModel, ModelSpec
+import sys
+from pathlib import Path
+
+# Fix import path - go up to src directory
+sys.path.insert(0, str(Path(__file__).parent.parent.parent))
+from core.base import BaseModel, ModelSpec
 
 
 class TVPModel(BaseModel):
