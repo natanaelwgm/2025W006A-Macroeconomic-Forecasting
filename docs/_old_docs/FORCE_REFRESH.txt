@@ -1,0 +1,82 @@
+
+🔄 HOW TO FORCE REFRESH RECIPE_CONFIG
+═════════════════════════════════════════════════════════════════════════
+
+PROBLEM: Excel showing old models (only ~20 instead of 43)
+CAUSE: Python module is cached, not reloading the updated code
+
+═════════════════════════════════════════════════════════════════════════
+
+SOLUTION 1: Run Force Refresh Script (Easiest)
+───────────────────────────────────────────────────────────────────────
+
+1. Make sure SMFdashboard.xlsm is open in Excel
+
+2. Open Terminal/Command Prompt
+
+3. Run:
+   cd /Users/schalkeanindya/SMFdashboard
+   python force_refresh_config.py
+
+4. Check Recipe_Config sheet - should now show 43 models!
+
+═════════════════════════════════════════════════════════════════════════
+
+SOLUTION 2: Manual Python Commands
+───────────────────────────────────────────────────────────────────────
+
+In Python console (or xlwings):
+
+import xlwings as xw
+import sys
+
+# Clear cache
+if 'SMFdashboard_recipe' in sys.modules:
+    del sys.modules['SMFdashboard_recipe']
+
+# Fresh import
+from SMFdashboard_recipe import setup_recipe_config_sheet
+
+# Delete and recreate
+wb = xw.books.active
+if 'Recipe_Config' in [s.name for s in wb.sheets]:
+    wb.sheets['Recipe_Config'].delete()
+
+setup_recipe_config_sheet(wb)
+
+═════════════════════════════════════════════════════════════════════════
+
+SOLUTION 3: Complete Restart
+───────────────────────────────────────────────────────────────────────
+
+1. Close Excel completely (Cmd+Q or Alt+F4)
+2. Close any Python terminals
+3. Wait 5 seconds
+4. Reopen Excel
+5. Open SMFdashboard.xlsm
+6. Run "Setup Recipe Dashboard" button again
+
+═════════════════════════════════════════════════════════════════════════
+
+VERIFY IT WORKED:
+─────────────────
+
+Recipe_Config sheet should show:
+
+Row 10: Naive
+Row 11: SeasonalNaive
+Row 12: Drift
+Row 13-22: Linear models (10 models)
+Row 23-28: Time series (6 models)
+Row 29-35: Tree models (7 models) ← RandomForest, XGBoost here!
+Row 36-38: Advanced ML (3 models)
+Row 39-40: Factor models (2 models)
+Row 41-44: Financial models (4 models)
+Row 45: LSTM
+
+Total: 43 models from row 10 to row 52
+
+═════════════════════════════════════════════════════════════════════════
+
+If still not working, let me know and I'll check for other issues!
+

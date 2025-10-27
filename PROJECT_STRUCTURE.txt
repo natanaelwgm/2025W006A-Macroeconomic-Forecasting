@@ -1,0 +1,53 @@
+SMF Dashboard - Project Structure
+==================================
+
+📁 Root Directory:
+├── README.md              ← Comprehensive guide
+├── QUICK_START.md         ← 5-minute getting started
+├── SETUP_VBA.md           ← VBA setup instructions
+├── requirements.txt       ← Python dependencies
+├── VBA_CODE_RECIPE_V2.txt ← VBA macros for buttons
+├── SMFdashboard_recipe.py ← Main Python code
+├── SMFdashboard.xlsm      ← Excel dashboard
+│
+├── 📁 data/
+│   ├── merged/           ← Pre-processed datasets
+│   │   ├── smf_monthly_data.csv
+│   │   ├── smf_quarterly_data.csv
+│   │   ├── smf_weekly_data.csv
+│   │   ├── smf_yearly_data.csv
+│   │   ├── smf_daily_data.csv
+│   │   ├── smf_semesterly_data.csv
+│   │   └── *.xlsx        ← Excel versions
+│   ├── SMF_Datasets_Y_Vars.xlsx
+│   └── SMF_Datasets_X_Vars.xlsx
+│
+├── 📁 src/
+│   ├── core/             ← Core modules
+│   │   ├── base.py       ← BaseModel interface
+│   │   ├── registry.py   ← Model discovery
+│   │   └── ...
+│   └── models/           ← 40+ model implementations
+│       ├── linear/
+│       ├── random_forest/
+│       ├── lstm/
+│       └── ...
+│
+├── 📁 custom_recipes/    ← Saved configurations
+├── 📁 docs/              ← Documentation
+└── 📁 old_scripts/       ← Old/utility scripts
+
+Key Files:
+----------
+1. README.md          → Full documentation
+2. QUICK_START.md     → Start here!
+3. SETUP_VBA.md       → VBA setup guide
+4. requirements.txt   → pip install dependencies
+
+Usage Flow:
+-----------
+1. Install: pip install -r requirements.txt
+2. Open: SMFdashboard.xlsm
+3. Run: python SMFdashboard_recipe.py
+4. Load Data → Select Models → Run Backcast → See Charts
+
