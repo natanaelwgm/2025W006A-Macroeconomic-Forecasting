@@ -5,7 +5,7 @@ SELF-CONTAINED RECIPE DASHBOARD - VBA MACROS V2
 NO EXTERNAL RECIPES NEEDED!
 - User creates own recipes
 - Default templates for Monthly/Quarterly/Semesterly/Yearly
-- Model checklist (43 models available - all repos combined!)
+- Model checklist (broad model coverage across repos)
 - Default hyperparameters provided
 - Save custom recipes
 - Pre-configured data paths to merged datasets
@@ -70,12 +70,23 @@ Sub ViewRankings()
     RunPython ("import SMFdashboard_recipe; SMFdashboard_recipe.btn_view_rankings()")
 End Sub
 
-Sub RunForecast()
-    RunPython ("import SMFdashboard_recipe; SMFdashboard_recipe.btn_recipe_forecast()")
+Sub ShowBestModels()
+    RunPython ("import SMFdashboard_recipe; SMFdashboard_recipe.btn_show_best_models()")
+End Sub
+
+ 
+
+Sub RunForecastPrecomputed()
+    RunPython ("import SMFdashboard_recipe; SMFdashboard_recipe.btn_forecast_with_precomputed()")
 End Sub
 
 Sub ClearResults()
     RunPython ("import SMFdashboard_recipe; SMFdashboard_recipe.btn_clear_results()")
+End Sub
+
+
+Sub ShowPrecomputedBackcast()
+    RunPython ("import SMFdashboard_recipe; SMFdashboard_recipe.show_precomputed_backcast_results()")
 End Sub
 
 
@@ -93,16 +104,20 @@ ROW 2 - DATA:
   [Load Real Data]      - LoadRealData
   [Generate Dummy Data] - GenerateDummyData
 
-ROW 3 - VALIDATION:
-  [Run Backcast]        - RunBackcast
-  [Refresh Charts]      - RefreshCharts
-  [View Rankings]       - ViewRankings
-
-ROW 4 - FORECASTING:
+ROW 3 - BEGINNER ACTIONS:
+  [Show Best Models]    - ShowBestModels (NEW!)
   [Run Forecast]        - RunForecast
 
-ROW 5 - UTILITIES:
-  [Clear Results]       - ClearResults (NEW!)
+ROW 4 - POWER USER ACTIONS:
+  [Run Backcast]        - RunBackcast
+  [View Rankings]       - ViewRankings
+  [Show Precomputed Backcast] - ShowPrecomputedBackcast
+
+ROW 5 - VISUALIZATION:
+  [Refresh Charts]      - RefreshCharts
+
+ROW 6 - UTILITIES:
+  [Clear Results]       - ClearResults
   [Save Recipe]         - SaveRecipe
 
 
@@ -130,7 +145,7 @@ STEP 3: LOAD DATA
 Option A - REAL DATA (Recommended):
 - Click "Load Real Data"
 - Loads from path in Recipe_Config cell B5
-- Default: /Users/schalkeanindya/SMFdashboard/data/merged/smf_monthly_data.csv
+- Default: /Users/schalkeanindya/SMFdashboard/SMFDashboard/data/merged/smf_monthly_data.csv
 
 Option B - DUMMY DATA (For Testing):
 - Click "Generate Dummy Data"
@@ -140,7 +155,7 @@ Option B - DUMMY DATA (For Testing):
 STEP 4: CONFIGURE MODELS & TRAIN/TEST DATES
 - Click "View Config" to open Recipe_Config sheet
 - CHECK/UNCHECK models in column A (rows 10-53):
-  ✓ 44 models total including:
+  ✓ Models available include:
     • Naive, SeasonalNaive, Drift, MovingAverage, ExpSmoothing
     • Linear, Ridge, Lasso, ElasticNet, Huber, PLS1, etc.
     • RandomForest, XGBoost, GradientBoosting, LightGBM, CatBoost
@@ -193,7 +208,7 @@ STEP 8: VIEW CHARTS
 STEP 8: SAVE YOUR RECIPE
 - Enter recipe name in Dashboard cell B7
 - Click "Save Recipe"
-- Saves to: /Users/schalkeanindya/SMFdashboard/custom_recipes/
+- Saves to: /Users/schalkeanindya/SMFdashboard/SMFDashboard/custom_recipes/
 - Includes all your selected models and hyperparameters
 
 
@@ -290,7 +305,7 @@ KEY IMPROVEMENTS
 
 ✅ NO external recipe files needed
 ✅ Self-contained configuration in Excel
-✅ Visual model checklist (18 models)
+✅ Visual model checklist (extensive model set)
 ✅ Default hyperparameters provided
 ✅ Frequency templates (Monthly/Quarterly/etc)
 ✅ Save custom recipes

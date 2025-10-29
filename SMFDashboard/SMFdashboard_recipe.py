@@ -105,7 +105,7 @@ def generate_dummy_recipe_data():
     dash = wb.sheets['Dashboard']
     
     data_view.clear()
-    dash.range('B27').value = "⏳ Generating dummy data matching recipe format..."
+    dash.range('B33').value = "⏳ Generating dummy data matching recipe format..."
     
     # Generate time series (same as real data: 2005-2025)
     np.random.seed(42)
@@ -194,7 +194,7 @@ def generate_dummy_recipe_data():
         ['• FX', '']
     ]
     
-    dash.range('B27').value = f"✅ Generated {periods} months × 10 variables (recipe format)"
+    dash.range('B33').value = f"✅ Generated {periods} months × 10 variables (recipe format)"
     data_view.activate()
     
     return f"✅ Generated dummy data matching recipes"
@@ -225,101 +225,223 @@ def setup_recipe_dashboard():
     dash.range('A1').color = (70, 130, 180)
     dash.range('A1').font.color = (255, 255, 255)
     
-    # Dashboard Description Panel
+    # ========== LEFT SIDE: BEGINNER SECTION ==========
+    
+    # Dashboard Description Panel (Left)
     dash.range('A3').value = "📋 DASHBOARD OVERVIEW"
     dash.range('A3').font.bold = True
     dash.range('A3').font.size = 14
-    dash.range('A3:D3').merge()
+    dash.range('A3:J3').merge()
     dash.range('A3').color = (220, 220, 220)
 
-    dash.range('A4').value = "This dashboard lets you configure, validate, and compare forecasting models using recipe-based settings. Use the workflow steps below to get started."
-    dash.range('A4:D4').merge()
+    dash.range('A4').value = "This dashboard lets you configure, validate, and compare forecasting models using recipe-based settings."
+    dash.range('A4:J4').merge()
     dash.range('A4').font.size = 11
     dash.range('A4').wrap_text = True
-    dash.range('A4').row_height = 35
     
-    # Removed "Optic" options text - frequency is set in Recipe_Config
+    dash.range('A6').value = "💡 Tip: Go to Recipe_Config to name & save recipes"
+    dash.range('A6').font.italic = True
+    dash.range('A6').font.size = 9
+    dash.range('A6:J6').merge()
+    dash.range('A6').color = (255, 255, 230)
     
-    dash.range('A7').value = "💡 Tip: Go to Recipe_Config to name & save recipes"
-    dash.range('A7').font.italic = True
-    dash.range('A7').font.size = 9
-    dash.range('A7:D7').merge()
-    dash.range('A7').color = (255, 255, 230)
+    # ========== HORIZONTAL LAYOUT: Quick Settings + Best Models Side by Side ==========
     
-    # Quick Settings Panel
-    dash.range('F3').value = "⚙️ QUICK SETTINGS"
-    dash.range('F3').font.bold = True
-    dash.range('F3').font.size = 14
-    dash.range('F3:H3').merge()
-    dash.range('F3').color = (220, 220, 220)
+    # FORECAST QUICK SETTINGS Panel (Left columns A-E)
+    dash.range('A8').value = "⚡ FORECAST QUICK SETTINGS"
+    dash.range('A8').font.bold = True
+    dash.range('A8').font.size = 12
+    dash.range('A8:E8').merge()
+    dash.range('A8').color = (100, 200, 100)  # Green for beginner section
+    dash.range('A8').font.color = (255, 255, 255)
     
-    dash.range('F4').value = [
+    dash.range('A9').value = [
         ['Parameter', 'Value'],
         ['Top N Models', 3],
-        ['Use Exog Variables', 'Yes'],
         ['Forecast Horizons', '1,3,6,12'],
         ['Max Forecast Periods', 12]
     ]
-    dash.range('F4:G8').columns.autofit()
-    dash.range('F4:G4').font.bold = True
-    dash.range('F4:G4').color = (200, 200, 255)
+    dash.range('A9:B12').columns.autofit()
+    dash.range('A9:B9').font.bold = True
+    dash.range('A9:B9').color = (200, 255, 200)
     
     # Make values editable
-    dash.range('G5:G8').color = (255, 255, 200)
+    dash.range('B10:B12').color = (255, 255, 200)
     
-    # Data Path Input (row 9)
-    dash.range('A9').value = "📂 Data Path:"
-    dash.range('A9').font.bold = True
-    default_data_path = "/Users/schalkeanindya/SMFdashboard/data/merged/smf_monthly_data.csv"
-    dash.range('B9').value = default_data_path
-    dash.range('B9').color = (255, 255, 200)
-    dash.range('B9').font.size = 9
-    dash.range('B9:E9').merge()  # Merge B-E so user can type long paths
+    # 🏆 SHOW BEST MODELS FOR Panel (shifted left to start at column D, span D-I)
+    dash.range('D8').value = "🏆 SHOW BEST MODELS FOR"
+    dash.range('D8').font.bold = True
+    dash.range('D8').font.size = 12
+    dash.range('D8:I8').merge()
+    dash.range('D8').color = (100, 200, 100)
+    dash.range('D8').font.color = (255, 255, 255)
     
-    dash.range('F9').value = "💡 Load data first, then configure models"
-    dash.range('F9').font.italic = True
-    dash.range('F9').font.size = 9
-    dash.range('G9:H9').merge()
-    dash.range('F9').color = (255, 255, 230)
+    # Variables and Frequencies side by side
+    # Variables now in columns D-E (starting row 9)
+    dash.range('D9').value = "Variables"
+    dash.range('D9').font.bold = True
+    dash.range('D9:E9').merge()
+    dash.range('D9').color = (200, 255, 200)
     
-    # Quick Actions Panel
-    dash.range('A15').value = "🚀 WORKFLOW"
-    dash.range('A15').font.bold = True
-    dash.range('A15').font.size = 14
-    dash.range('A15:D15').merge()
-    dash.range('A15').color = (220, 220, 220)
+    # Variables checklist header
+    dash.range('D10').value = [['✓', 'Variable']]
+    dash.range('D10:E10').font.bold = True
+    dash.range('D10:E10').color = (230, 255, 230)
     
-    instructions = [
-        ['Step', 'Action', 'Description'],
-        ['1', 'Load Data', 'Load real data from merged datasets'],
-        ['2', 'Configure Models', 'Go to Recipe_Config, select models & targets'],
-        ['3', 'Adjust Settings', 'Edit train/test dates & hyperparameters'],
-        ['4', 'Run Backcast', 'Validate models on test period'],
-        ['5', 'View Rankings', 'See best performing models'],
-        ['6', 'Run Forecast', 'Generate future predictions with top models'],
-        ['7', 'Refresh Charts', 'View backcast and forecast charts'],
-        ['8', 'Clear Results', 'Reset sheets and charts to start fresh'],
-        ['9', 'Save Recipe', 'Save custom configuration']
+    # Pre-populated economic variables
+    variables = [
+        'Real GDP Growth', 'BI7DRR', 'Deposit Rate 1M',
+        'Deposit Rate 3M', 'Deposit Rate 6M', 'Deposit Rate 12M',
+        'CPI', 'JISDOR Exchange Rate', 'Informal Employment'
     ]
-    dash.range('A16').value = instructions
-    dash.range('A16:C16').font.bold = True
-    dash.range('A16:C16').color = (230, 230, 230)
-    dash.range('A16:C22').columns.autofit()
-    # Status Bar
-    dash.range('A27').value = "Status:"
-    dash.range('A27').font.bold = True
-    dash.range('B27').value = "Ready - Generate data to start"
-    dash.range('B27').font.italic = True
-    dash.range('B27:H27').merge()
     
-    # Visualization Area
-    dash.range('A28').value = "📊 VISUALIZATIONS"
-    dash.range('A28').font.size = 16
-    dash.range('A28').font.bold = True
-    dash.range('A28').color = (70, 130, 180)
-    dash.range('A28').font.color = (255, 255, 255)
-    dash.range('A28:P28').merge()
-    dash.range('A28').api.HorizontalAlignment = -4108
+    # Populate variable checkboxes (columns D-E)
+    for i, var in enumerate(variables):
+        row = 11 + i
+        # Checkbox column (unchecked by default)
+        dash.range(f'D{row}').value = '✗'
+        dash.range(f'D{row}').api.HorizontalAlignment = -4108  # Center
+        dash.range(f'D{row}').font.bold = True
+        dash.range(f'D{row}').color = (255, 200, 200)
+        
+        # Add data validation for checkbox (✓ or ✗)
+        try:
+            dash.range(f'D{row}').api.Validation.Delete()
+            dash.range(f'D{row}').api.Validation.Add(
+                Type=3,  # xlValidateList
+                AlertStyle=1,
+                Formula1='✓,✗'
+            )
+        except:
+            pass
+        
+        # Variable name column
+        dash.range(f'E{row}').value = var
+        dash.range(f'E{row}').color = (255, 255, 240)
+    
+    # Frequencies now in columns F-G (starting row 9)
+    dash.range('F9').value = "Frequencies"
+    dash.range('F9').font.bold = True
+    dash.range('F9:G9').merge()
+    dash.range('F9').color = (200, 255, 200)
+    
+    # Frequencies checklist header
+    dash.range('F10').value = [['✓', 'Frequency']]
+    dash.range('F10:G10').font.bold = True
+    dash.range('F10:G10').color = (230, 255, 230)
+    
+    # Unique frequencies
+    frequencies = ['monthly', 'quarterly', 'semesterly', 'yearly', 'weekly']
+    
+    # Populate frequency checkboxes (columns F-G)
+    for i, freq in enumerate(frequencies):
+        row = 11 + i
+        # Checkbox column (monthly checked, others unchecked)
+        if i == 0:  # monthly
+            dash.range(f'F{row}').value = '✓'
+            dash.range(f'F{row}').color = (200, 255, 200)
+        else:
+            dash.range(f'F{row}').value = '✗'
+            dash.range(f'F{row}').color = (255, 200, 200)
+        
+        dash.range(f'F{row}').api.HorizontalAlignment = -4108  # Center
+        dash.range(f'F{row}').font.bold = True
+        
+        # Add data validation for checkbox (✓ or ✗)
+        try:
+            dash.range(f'F{row}').api.Validation.Delete()
+            dash.range(f'F{row}').api.Validation.Add(
+                Type=3,  # xlValidateList
+                AlertStyle=1,
+                Formula1='✓,✗'
+            )
+        except:
+            pass
+        
+        # Frequency name column
+        dash.range(f'G{row}').value = freq
+        dash.range(f'G{row}').color = (255, 255, 240)
+    
+    # Quick Actions for Beginners (row 22)
+    dash.range('A22').value = "🚀 QUICK ACTIONS FOR BEGINNERS"
+    dash.range('A22').font.bold = True
+    dash.range('A22').font.size = 12
+    dash.range('A22:K22').merge()
+    dash.range('A22').color = (220, 220, 220)
+    
+    beginner_steps = [
+        ['1', 'Set Quick Settings', 'Adjust Top N, Horizons, Max Periods (left)'],
+        ['2', 'Choose Variables', 'Check variables you want to forecast (columns F-G)'],
+        ['3', 'Choose Frequency', 'Check frequencies (columns H-I)'],
+        ['4', 'Show Best Models', 'View which models perform best'],
+        ['5', 'Run Forecast', 'Generate future predictions'],
+        ['6', 'Refresh Charts', 'View visualizations'],
+        ['7', 'Clear Results', 'Start over with new settings']
+    ]
+    
+    dash.range('A23').value = beginner_steps
+    dash.range('A23:C23').font.bold = True
+    dash.range('A23:C23').color = (230, 230, 230)
+    dash.range('A23:C29').columns.autofit()
+    
+    # ========== POWER USER / CUSTOM BACKCAST SECTION (Right Side) ==========
+    
+    # Custom Backcast header (shifted left: columns K-N, starting row 8)
+    dash.range('K8').value = "⚙️ POWER USER / CUSTOM BACKCAST"
+    dash.range('K8').font.bold = True
+    dash.range('K8').font.size = 12
+    dash.range('K8:N8').merge()
+    dash.range('K8').color = (200, 100, 100)  # Red/orange for power user
+    dash.range('K8').font.color = (255, 255, 255)
+    
+    # Action buttons and instructions (compact)
+    dash.range('K9').value = "Actions:"
+    dash.range('K9').font.bold = True
+    dash.range('K9').font.size = 11
+    
+    action_buttons = [
+        ['•', 'Configure Models'],
+        ['•', 'Run Backcast'],
+        ['•', 'View Rankings'],
+        ['•', 'Run Forecast'],
+        ['•', 'Refresh Charts'],
+        ['•', 'Clear Results']
+    ]
+    
+    dash.range('K10').value = action_buttons
+    dash.range('K10').columns.autofit()
+    
+    # Note for power users
+    dash.range('K17').value = "💡 For advanced customization, go to Recipe_Config"
+    dash.range('K17').font.italic = True
+    dash.range('K17').font.size = 9
+    dash.range('K17:N17').merge()
+    dash.range('K17').color = (255, 240, 200)
+    
+    # Data Path Input (row 31)
+    dash.range('A31').value = "📂 Data Path:"
+    dash.range('A31').font.bold = True
+    default_data_path = "/Users/schalkeanindya/SMFdashboard/data/merged/smf_monthly_data.csv"
+    dash.range('B31').value = default_data_path
+    dash.range('B31').color = (255, 255, 200)
+    dash.range('B31').font.size = 9
+    dash.range('B31:K31').merge()
+    
+    # Status Bar (row 33)
+    dash.range('A33').value = "Status:"
+    dash.range('A33').font.bold = True
+    dash.range('B33').value = "Ready - Generate data to start"
+    dash.range('B33').font.italic = True
+    dash.range('B33:K33').merge()
+    
+    # Visualization Area (row 35)
+    dash.range('A35').value = "📊 VISUALIZATIONS"
+    dash.range('A35').font.size = 16
+    dash.range('A35').font.bold = True
+    dash.range('A35').color = (70, 130, 180)
+    dash.range('A35').font.color = (255, 255, 255)
+    dash.range('A35:P35').merge()
+    dash.range('A35').api.HorizontalAlignment = -4108
     
     # Setup Recipe Config Sheet
     setup_recipe_config_sheet(wb)
@@ -367,10 +489,10 @@ def setup_recipe_config_sheet(wb):
     config.range('E4').font.size = 9
     config.range('E4').color = (255, 255, 230)
     
-    config.range('A5').value = "Data Path: (set in Dashboard B9)"
+    config.range('A5').value = "Data Path: (set in Dashboard B31)"
     config.range('A5').font.bold = True
     config.range('A5').font.italic = True
-    config.range('B5').value = "=Dashboard!B9"
+    config.range('B5').value = "=Dashboard!B31"
     config.range('B5').color = (200, 255, 200)
     config.range('B5:H5').merge()
     config.range('B5').font.size = 9
@@ -780,7 +902,7 @@ def apply_frequency_template():
     config_sheet.range('B57').value = horizons_str
     # Note: Train/test dates (rows 58-61) are now set manually by user
     
-    dash.range('B27').value = f"✅ Applied {frequency} template: {template['description']}"
+    dash.range('B33').value = f"✅ Applied {frequency} template: {template['description']}"
     config_sheet.activate()
     
     return f"✅ Template applied: {frequency}"
@@ -906,10 +1028,10 @@ def load_data_from_recipe():
     config_sheet = wb.sheets['Recipe_Config']
     data_view = wb.sheets['Data_View']
     
-    # Get data path from Dashboard (row 9)
-    data_path_raw = dash.range('B9').value
+    # Get data path from Dashboard
+    data_path_raw = dash.range('B28').value
     if not data_path_raw:
-        dash.range('B27').value = "⚠️ No data path set. Enter path in Dashboard B9"
+        dash.range('B33').value = "⚠️ No data path set. Enter path in Dashboard B28"
         return "⚠️ No data path"
     
     # Try to resolve path
@@ -923,7 +1045,7 @@ def load_data_from_recipe():
             data_path = potential_path
     
     if not data_path or not os.path.exists(data_path):
-        dash.range('B27').value = f"⚠️ Data file not found: {Path(data_path_raw).name}"
+        dash.range('B33').value = f"⚠️ Data file not found: {Path(data_path_raw).name}"
         return "⚠️ Data not found"
     
     # Load CSV
@@ -931,7 +1053,7 @@ def load_data_from_recipe():
         df = pd.read_csv(data_path)
         df = df.head(1000)  # Limit for Excel
     except Exception as e:
-        dash.range('B27').value = f"⚠️ Error loading data: {str(e)[:50]}"
+        dash.range('B33').value = f"⚠️ Error loading data: {str(e)[:50]}"
         return f"⚠️ Error: {e}"
     
     # Write to Data_View sheet
@@ -1042,10 +1164,336 @@ def load_data_from_recipe():
         except:
             pass
     
-    dash.range('B27').value = f"✅ Loaded: {len(df)} rows × {len(numeric_cols)} variables | Frequency: {freq}"
+    dash.range('B33').value = f"✅ Loaded: {len(df)} rows × {len(numeric_cols)} variables | Frequency: {freq}"
     data_view.activate()
     
     return f"✅ Loaded {len(df)} rows"
+
+
+def run_forecast_with_precomputed_models():
+    """
+    CORRECTED LOGIC:
+    1. Reads top N models from Backcast_Results sheet (generated by backtest)
+    2. Re-trains ONLY these top models on full historical data
+    3. Generates proper multi-step autoregressive forecast using trained models
+    """
+    wb = xw.Book.caller()
+    dash = wb.sheets['Dashboard']
+    data_view = wb.sheets['Data_View']
+    backcast_sheet = wb.sheets['Backcast_Results']
+    
+    dash.range('B33').value = "⏳ Forecasting with top models from backcast..."
+    
+    # Get Top N from settings
+    top_n = int(dash.range('B10').value or 3)
+    max_forecast_periods = int(dash.range('B12').value or 12)
+    
+    # Get forecast horizons from settings (B11)
+    forecast_horizons_str = dash.range('B11').value or '1,3,6,12'
+    try:
+        forecast_horizons = [int(h.strip()) for h in str(forecast_horizons_str).split(',')]
+    except:
+        forecast_horizons = [1, 3, 6, 12]
+    
+    # Get selected variables (rows 11-20) from columns D/E
+    selected_vars = []
+    for row in range(11, 21):
+        checkbox = dash.range(f'D{row}').value
+        if checkbox == '✓':
+            var_name = dash.range(f'E{row}').value
+            if var_name:
+                selected_vars.append(var_name)
+    
+    # Get selected frequencies (rows 11-16) from columns F/G
+    selected_freqs = []
+    for row in range(11, 17):
+        checkbox = dash.range(f'F{row}').value
+        if checkbox == '✓':
+            freq = dash.range(f'G{row}').value
+            if freq:
+                selected_freqs.append(freq)
+    
+    if not selected_vars or not selected_freqs:
+        dash.range('B33').value = "⚠️ Please select variables and frequencies first"
+        return "⚠️ No selection"
+    
+    # Load data
+    try:
+        df = data_view.range('A3').options(pd.DataFrame, header=1, index=False, expand='table').value
+        if df is None or df.empty:
+            dash.range('B33').value = "⚠️ No data in Data_View. Load data first."
+            return "⚠️ No data"
+    except Exception as e:
+        dash.range('B33').value = f"⚠️ Could not load data: {str(e)[:50]}"
+        return "⚠️ Data load error"
+    
+    # Assume first column is date
+    date_col = df.columns[0]
+    if date_col:
+        try:
+            df[date_col] = pd.to_datetime(df[date_col], errors='coerce')
+        except:
+            pass
+    
+    # Create Forecast_Results sheet
+    if 'Forecast_Results' in [s.name for s in wb.sheets]:
+        forecast_sheet = wb.sheets['Forecast_Results']
+        forecast_sheet.clear()
+    else:
+        forecast_sheet = wb.sheets.add('Forecast_Results')
+    
+    forecast_sheet.range('A1').value = f"📈 FORECASTS FROM TOP {top_n} BACKTEST MODELS"
+    forecast_sheet.range('A1').font.bold = True
+    forecast_sheet.range('A1').font.size = 14
+    forecast_sheet.range('A1').color = (70, 130, 180)
+    forecast_sheet.range('A1').font.color = (255, 255, 255)
+    
+    current_row = 3
+    
+    # Load top models from FINAL_EXCEL_REPORTS (precomputed results)
+    all_top_models = {}  # { 'variable_name': ['Model1', 'Model2'], ... }
+    
+    # Map frequency to Excel file
+    freq_to_file = {
+        'monthly': 'forecasting_results_Monthly_detailed.xlsx',
+        'quarterly': 'forecasting_results_Quarterly_detailed.xlsx',
+        'yearly': 'forecasting_results_Yearly_detailed.xlsx',
+        'semesterly': 'forecasting_results_Semesterly_detailed.xlsx',
+    }
+    
+    try:
+        for freq in selected_freqs:
+            excel_file = freq_to_file.get(str(freq).lower())
+            if not excel_file:
+                continue
+            
+            file_path = os.path.join('/Users/schalkeanindya/SMFdashboard/FINAL_EXCEL_REPORTS', excel_file)
+            if not os.path.exists(file_path):
+                continue
+            
+            df_excel = pd.read_excel(file_path)
+            
+            # Find variable and RMSE columns
+            var_col = None
+            for col in ['Variable', 'variable', 'target', 'Target', 'Y Variable']:
+                if col in df_excel.columns:
+                    var_col = col
+                    break
+            
+            rmse_col = None
+            for col in ['RMSE', 'rmse', 'RMSE@H=1', 'test_rmse']:
+                if col in df_excel.columns:
+                    rmse_col = col
+                    break
+            
+            if not var_col or not rmse_col:
+                continue
+            
+            # For each selected variable, get top N models
+            for var in selected_vars:
+                var_data = df_excel[df_excel[var_col].astype(str) == str(var)]
+                if len(var_data) == 0:
+                    continue
+                
+                var_data_sorted = var_data.sort_values(rmse_col).head(top_n)
+                
+                for idx, row in var_data_sorted.iterrows():
+                    model_name = ''
+                    for col_name in ['Model', 'model_name', 'Model Type', 'plugin', 'Plugin', 'model', 'Member', 'member']:
+                        if col_name in df_excel.columns:
+                            val = row.get(col_name)
+                            if val is not None:
+                                model_name = str(val).strip()
+                                if model_name and model_name != 'nan' and model_name.lower() != 'none':
+                                    break
+                    
+                    if not model_name:
+                        for col in df_excel.columns:
+                            if 'id' in col.lower() or 'member' in col.lower() or 'variant' in col.lower():
+                                val = row.get(col)
+                                if val is not None:
+                                    id_str = str(val).strip()
+                                    if '-' in id_str:
+                                        model_name = id_str.split('-')[0]
+                                    else:
+                                        model_name = id_str
+                                    if model_name:
+                                        break
+                    
+                    if model_name and var not in all_top_models:
+                        all_top_models[var] = []
+                    if model_name and model_name not in all_top_models[var]:
+                        all_top_models[var].append(model_name)
+    
+    except Exception as e:
+        dash.range('B33').value = f"⚠️ Could not load precomputed models. Error: {e}"
+        import traceback
+        traceback.print_exc()
+        return "⚠️ Failed to load models"
+    
+    if not all_top_models:
+        dash.range('B33').value = "⚠️ No models found in precomputed results for selected variables."
+        return "⚠️ No models found"
+    
+    # Debug: Show what we found
+    debug_msg = f"Found models for: {list(all_top_models.keys())[:3]}..."
+    dash.range('B33').value = debug_msg
+    
+    # For each variable, train its top models and forecast
+    results_written = False
+    for target_col in selected_vars:
+        # Debug variable matching
+        in_all_top = target_col in all_top_models
+        in_df = target_col in df.columns
+        
+        if not in_all_top:
+            forecast_sheet.range(f'A{current_row}').value = f"⚠️ {target_col}: Not in precomputed results"
+            current_row += 2
+            continue
+        if not in_df:
+            forecast_sheet.range(f'A{current_row}').value = f"⚠️ {target_col}: Not in Data_View (available: {', '.join(df.columns[:3])}...)"
+            current_row += 2
+            continue
+        
+        top_model_names = all_top_models[target_col]
+        if not top_model_names:
+            continue
+        
+        try:
+            # Prepare data for full history
+            y_full = df[target_col].dropna().values
+            if len(y_full) < 12:
+                forecast_sheet.range(f'A{current_row}').value = f"⚠️ {target_col}: Not enough data (need ≥12 observations)"
+                current_row += 2
+                continue
+            
+            lags = [1, 3, 6, 12]
+            X_all, y_all_target, _ = build_lagged_features(y_full, lags=lags, horizon=1)
+            
+            if len(X_all) == 0:
+                forecast_sheet.range(f'A{current_row}').value = f"⚠️ {target_col}: Could not build features"
+                current_row += 2
+                continue
+            
+            # Train models and generate forecasts
+            forecasts = {}
+            for model_name in top_model_names:
+                try:
+                    model = create_model(model_name)
+                    if model is None:
+                        continue
+                    
+                    # Train on full history
+                    model.fit(X_all.tolist(), y_all_target.tolist())
+                    
+                    # Autoregressive forecasting loop
+                    history = list(y_full)
+                    predictions = []
+                    for period in range(max_forecast_periods):
+                        # Build features using LAST values from history
+                        features_for_pred = []
+                        for lag in lags:
+                            if len(history) >= lag:
+                                features_for_pred.append(history[-lag])
+                            else:
+                                # Fallback to original data
+                                if len(y_full) >= lag:
+                                    features_for_pred.append(y_full[-lag])
+                                else:
+                                    features_for_pred.append(y_full[0])  # Use first value as fallback
+                        
+                        # Make prediction
+                        try:
+                            next_pred = model.predict_row(features_for_pred)
+                        except:
+                            # If predict_row fails, use simple average
+                            next_pred = np.mean(history[-3:]) if len(history) >= 3 else history[-1]
+                        
+                        predictions.append(next_pred)
+                        history.append(next_pred)
+                    
+                    forecasts[model_name] = predictions
+                except Exception as e:
+                    print(f"Error forecasting with {model_name} for {target_col}: {e}")
+                    import traceback
+                    traceback.print_exc()
+            
+            if not forecasts:
+                continue
+            
+            # Write to Excel with detailed information
+            # Variable header
+            forecast_sheet.range(f'A{current_row}').value = f"📊 {target_col}"
+            forecast_sheet.range(f'A{current_row}').font.bold = True
+            forecast_sheet.range(f'A{current_row}').font.size = 12
+            forecast_sheet.range(f'A{current_row}').color = (220, 240, 255)
+            current_row += 1
+            
+            # Model specifications info
+            forecast_sheet.range(f'A{current_row}').value = f"🔧 Models Used: {', '.join(forecasts.keys())}"
+            forecast_sheet.range(f'A{current_row}').font.italic = True
+            forecast_sheet.range(f'A{current_row}').font.size = 9
+            current_row += 1
+            
+            # Training info
+            forecast_sheet.range(f'A{current_row}').value = f"📈 Training: {len(y_full)} observations, Lags: {lags}, Horizons: {forecast_horizons}"
+            forecast_sheet.range(f'A{current_row}').font.italic = True
+            forecast_sheet.range(f'A{current_row}').font.size = 9
+            current_row += 1
+            current_row += 1  # Extra space
+            
+            # Create forecast table with horizons
+            for horizon in forecast_horizons:
+                forecast_sheet.range(f'A{current_row}').value = f"🎯 Horizon {horizon} Periods Ahead"
+                forecast_sheet.range(f'A{current_row}').font.bold = True
+                forecast_sheet.range(f'A{current_row}').color = (240, 248, 255)
+                current_row += 1
+                
+                # Headers
+                headers = ['Period'] + list(forecasts.keys())
+                forecast_sheet.range(f'A{current_row}').value = [headers]
+                forecast_sheet.range(f'A{current_row}').expand('right').font.bold = True
+                forecast_sheet.range(f'A{current_row}').expand('right').color = (200, 220, 255)
+                current_row += 1
+                
+                # Forecast values for this horizon
+                for i in range(max_forecast_periods):
+                    row_data = [f"t+{i+1}"]
+                    row_data.extend([forecasts[model][i] for model in forecasts.keys()])
+                    forecast_sheet.range(f'A{current_row}').value = row_data
+                    current_row += 1
+                
+                # Add average for this horizon, using comma as decimal separator
+                forecast_sheet.range(f'A{current_row}').value = f"📊 Average (h={horizon}):"
+                for model in forecasts.keys():
+                    avg_val = np.mean([forecasts[model][h-1] for h in forecast_horizons if h <= max_forecast_periods])
+                    # Format with comma as decimal, 4 digits
+                    avg_val_str = f"{avg_val:.4f}".replace('.', ',')
+                    forecast_sheet.range(f'{chr(65+list(forecasts.keys()).index(model)+1)}{current_row}').value = avg_val_str
+                forecast_sheet.range(f'A{current_row}').expand('right').font.italic = True
+                current_row += 2
+
+            current_row += 2
+            results_written = True  # ✅ Mark that we wrote results
+        
+        except Exception as e:
+            print(f"Error generating forecast for {target_col}: {e}")
+            forecast_sheet.range(f'A{current_row}').value = f"⚠️ Error for {target_col}: {str(e)[:50]}"
+            current_row += 2
+            results_written = True
+    
+    if not results_written:
+        forecast_sheet.range('A1').value = "⚠️ NO FORECASTS GENERATED"
+        forecast_sheet.range('A2').value = f"Selected vars: {selected_vars}"
+        forecast_sheet.range('A3').value = f"Models found: {list(all_top_models.keys())}"
+        forecast_sheet.range('A4').value = f"Data columns: {list(df.columns)[:5]}"
+        dash.range('B33').value = "⚠️ Check variable names - no forecasts generated"
+        return "⚠️ No forecasts"
+    
+    forecast_sheet.activate()
+    dash.range('B33').value = "✅ Forecasts generated using top models from backcast!"
+    
+    return "✅ Forecast complete"
 
 
 def run_recipe_forecast():
@@ -1066,25 +1514,25 @@ def run_recipe_forecast():
     else:
         forecast_sheet = wb.sheets.add('Forecast_Results', after=backcast_sheet)
     
-    dash.range('B27').value = "⏳ Generating forecasts with best models..."
+    dash.range('B33').value = "⏳ Generating forecasts with best models..."
     
-    # Get settings
-    top_n = int(dash.range('G5').value or 3)
+    # Get settings from Quick Settings (rows 9-12)
+    top_n = int(dash.range('B10').value or 3)
     
     # Get data
     try:
         df = data_view.range('A3').options(pd.DataFrame, header=1, index=False, expand='table').value
         if df is None or len(df) == 0:
-            dash.range('B27').value = "⚠️ No data loaded. Load Data first!"
+            dash.range('B33').value = "⚠️ No data loaded. Load Data first!"
             return "⚠️ No data"
     except:
-        dash.range('B27').value = "⚠️ No data loaded. Load Data first!"
+        dash.range('B33').value = "⚠️ No data loaded. Load Data first!"
         return "⚠️ No data"
     
     # Get selected targets
     selected_targets = get_selected_targets()
     if len(selected_targets) == 0:
-        dash.range('B27').value = "⚠️ No target variables selected!"
+        dash.range('B33').value = "⚠️ No target variables selected!"
         return "⚠️ No targets"
     
     # Detect date column
@@ -1101,17 +1549,17 @@ def run_recipe_forecast():
     try:
         df[date_col] = pd.to_datetime(df[date_col])
     except:
-        dash.range('B27').value = f"⚠️ Could not parse date column"
+        dash.range('B33').value = f"⚠️ Could not parse date column"
         return "⚠️ Date error"
     
     # Get horizons from Dashboard (quick settings)
-    forecast_horizons_str = dash.range('G7').value or '1,3,6,12'
+    forecast_horizons_str = dash.range('B11').value or '1,3,6,12'
     try:
         forecast_horizons = [int(h.strip()) for h in str(forecast_horizons_str).split(',')]
     except:
         forecast_horizons = [1, 3, 6, 12]
     
-    max_forecast_periods = int(dash.range('G8').value or 12)
+    max_forecast_periods = int(dash.range('B12').value or 12)
     
     # Setup forecast sheet
     forecast_sheet.clear()
@@ -1294,7 +1742,7 @@ def run_recipe_forecast():
         pass
     
     forecast_sheet.activate()
-    dash.range('B27').value = f"✅ Forecast complete: {len(selected_targets)} variables × Top {top_n} models"
+    dash.range('B33').value = f"✅ Forecast complete: {len(selected_targets)} variables × Top {top_n} models"
     
     return "✅ Forecast complete"
 
@@ -1308,7 +1756,7 @@ def save_custom_recipe():
     # Get recipe name from Recipe_Config (NEW LOCATION!)
     recipe_name = config_sheet.range('B4').value
     if not recipe_name:
-        dash.range('B27').value = "⚠️ Enter recipe name in Recipe_Config cell B4"
+        dash.range('B33').value = "⚠️ Enter recipe name in Recipe_Config cell B4"
         config_sheet.activate()
         config_sheet.range('B4').select()
         return "⚠️ No recipe name"
@@ -1320,7 +1768,7 @@ def save_custom_recipe():
     # Get selected models
     selected_models = get_selected_models()
     if not selected_models:
-        dash.range('B27').value = "⚠️ No models selected in Recipe_Config"
+        dash.range('B33').value = "⚠️ No models selected in Recipe_Config"
         return "⚠️ No models"
     
     # Get hyperparameters
@@ -1340,8 +1788,8 @@ def save_custom_recipe():
     test_end = str(config_sheet.range('B61').value or '2024-12-31')
     date_col = str(config_sheet.range('B62').value or 'date')
     
-    # Get data path from Dashboard (row 9)
-    data_path = str(dash.range('B9').value or '')
+    # Get data path from Dashboard
+    data_path = str(dash.range('B31').value or '')
     
     # Build recipe dict in REPO format (like your other repos)
     recipe = {
@@ -1376,10 +1824,10 @@ def save_custom_recipe():
         with open(save_path, 'w') as f:
             json.dump(recipe, f, indent=2)
         
-        dash.range('B27').value = f"✅ Recipe saved: {save_path.name}"
+        dash.range('B33').value = f"✅ Recipe saved: {save_path.name}"
         return f"✅ Saved: {save_path.name}"
     except Exception as e:
-        dash.range('B27').value = f"⚠️ Error saving: {str(e)[:50]}"
+        dash.range('B33').value = f"⚠️ Error saving: {str(e)[:50]}"
         return f"⚠️ Error: {e}"
 
 
@@ -1388,9 +1836,9 @@ def btn_setup_recipe():
     """Button: Setup Recipe Dashboard"""
     wb = xw.Book.caller()
     dash = wb.sheets['Dashboard']
-    dash.range('B27').value = "⏳ Setting up recipe dashboard..."
+    dash.range('B33').value = "⏳ Setting up recipe dashboard..."
     msg = setup_recipe_dashboard()
-    dash.range('B27').value = msg
+    dash.range('B33').value = msg
     return msg
 
 
@@ -1405,7 +1853,7 @@ def btn_apply_template():
     """Button: Apply Frequency Template"""
     wb = xw.Book.caller()
     dash = wb.sheets['Dashboard']
-    dash.range('B27').value = "⏳ Applying template..."
+    dash.range('B33').value = "⏳ Applying template..."
     msg = apply_frequency_template()
     return msg
 
@@ -1414,7 +1862,7 @@ def btn_load_data():
     """Button: Load Data"""
     wb = xw.Book.caller()
     dash = wb.sheets['Dashboard']
-    dash.range('B27').value = "⏳ Loading data..."
+    dash.range('B33').value = "⏳ Loading data..."
     msg = load_data_from_recipe()
     return msg
 
@@ -1423,7 +1871,7 @@ def btn_save_recipe():
     """Button: Save Recipe"""
     wb = xw.Book.caller()
     dash = wb.sheets['Dashboard']
-    dash.range('B27').value = "⏳ Saving recipe..."
+    dash.range('B33').value = "⏳ Saving recipe..."
     msg = save_custom_recipe()
     return msg
 
@@ -1443,20 +1891,20 @@ def run_recipe_backcast():
     data_view = wb.sheets['Data_View']
     config_sheet = wb.sheets['Recipe_Config']
     
-    dash.range('B27').value = "⏳ Running backcast validation..."
+    dash.range('B33').value = "⏳ Running backcast validation..."
     
     # Get data
     try:
         df = data_view.range('A3').options(pd.DataFrame, header=1, index=False, expand='table').value
         if df is None or len(df) == 0:
-            dash.range('B27').value = "⚠️ No data loaded. Load Data first!"
+            dash.range('B33').value = "⚠️ No data loaded. Load Data first!"
             return "⚠️ No data"
     except:
-        dash.range('B27').value = "⚠️ No data loaded. Load Data first!"
+        dash.range('B33').value = "⚠️ No data loaded. Load Data first!"
         return "⚠️ No data"
     
     # Get settings from config
-    top_n = int(dash.range('G5').value or 3)
+    top_n = int(dash.range('B10').value or 3)
     
     # Read train/test dates from Recipe_Config (rows 58-62 in new layout)
     train_start = config_sheet.range('B58').value or '2005-01-01'
@@ -1468,13 +1916,13 @@ def run_recipe_backcast():
     # Get selected models from config
     selected_models = get_selected_models()
     if len(selected_models) == 0:
-        dash.range('B27').value = "⚠️ No models selected. Check models in Recipe_Config!"
+        dash.range('B33').value = "⚠️ No models selected. Check models in Recipe_Config!"
         return "⚠️ No models selected"
     
     # Get selected target variables
     selected_targets = get_selected_targets()
     if len(selected_targets) == 0:
-        dash.range('B27').value = "⚠️ No target variables selected. Check targets in Recipe_Config!"
+        dash.range('B33').value = "⚠️ No target variables selected. Check targets in Recipe_Config!"
         return "⚠️ No targets selected"
     
     # Detect date column
@@ -1491,7 +1939,7 @@ def run_recipe_backcast():
     try:
         df[date_col] = pd.to_datetime(df[date_col])
     except:
-        dash.range('B27').value = f"⚠️ Could not parse date column: {date_col}"
+        dash.range('B33').value = f"⚠️ Could not parse date column: {date_col}"
         return "⚠️ Date parse error"
     
     # Run backcast
@@ -1514,7 +1962,7 @@ def run_recipe_backcast():
         test_start_dt = pd.to_datetime(test_start)
         test_end_dt = pd.to_datetime(test_end)
     except:
-        dash.range('B27').value = "⚠️ Invalid date format. Use YYYY-MM-DD"
+        dash.range('B33').value = "⚠️ Invalid date format. Use YYYY-MM-DD"
         return "⚠️ Date format error"
     
     # Train actual models on each SELECTED target variable
@@ -1585,7 +2033,7 @@ def run_recipe_backcast():
             # Train models using CUSTOM MODEL LIBRARY
             models_predictions = {}
             
-            for model_name in selected_models[:15]:  # Train up to 15 models
+            for model_name in selected_models:  # Train all selected models
                 try:
                     # Create model from registry
                     model = create_model(model_name)
@@ -1676,7 +2124,7 @@ def run_recipe_backcast():
         pass
     
     backcast_sheet.activate()
-    dash.range('B27').value = f"✅ Backcast: {len(selected_targets)} variables × Top {top_n} models | Date-based split"
+    dash.range('B33').value = f"✅ Backcast: {len(selected_targets)} variables × Top {top_n} models | Date-based split"
     
     return f"✅ Backcast complete"
 
@@ -1693,7 +2141,7 @@ def view_model_rankings():
         rankings_sheet = wb.sheets['Model_Rankings']
     
     rankings_sheet.clear()
-    dash.range('B27').value = "⏳ Generating model rankings..."
+    dash.range('B33').value = "⏳ Generating model rankings..."
     
     # Check if backcast has been run
     try:
@@ -1701,12 +2149,12 @@ def view_model_rankings():
         # Try to read some data to verify backcast was run
         test_data = backcast_sheet.range('A1').value
         if not test_data:
-            dash.range('B27').value = "⚠️ Run Backcast first to see rankings"
+            dash.range('B33').value = "⚠️ Run Backcast first to see rankings"
             rankings_sheet.activate()
             rankings_sheet.range('A1').value = "⚠️ Please run Backcast first to generate rankings"
             return "⚠️ No backcast data"
     except:
-        dash.range('B27').value = "⚠️ Run Backcast first to see rankings"
+        dash.range('B33').value = "⚠️ Run Backcast first to see rankings"
         rankings_sheet.activate()
         rankings_sheet.range('A1').value = "⚠️ Please run Backcast first to generate rankings"
         return "⚠️ No backcast data"
@@ -1821,7 +2269,7 @@ def view_model_rankings():
     if len(model_summary) == 0:
         rankings_sheet.range('A4').value = "⚠️ No valid model performances found"
         rankings_sheet.activate()
-        dash.range('B27').value = "⚠️ No valid rankings"
+        dash.range('B33').value = "⚠️ No valid rankings"
         return "⚠️ No valid data"
     
     # Sort by average RMSE
@@ -1864,7 +2312,7 @@ def view_model_rankings():
     rankings_sheet.range(f'A{6+len(model_summary)}').color = (255, 255, 230)
     
     rankings_sheet.activate()
-    dash.range('B27').value = f"✅ Rankings: {len(model_summary)} models ranked by average RMSE"
+    dash.range('B33').value = f"✅ Rankings: {len(model_summary)} models ranked by average RMSE"
     
     return f"✅ Rankings generated"
 
@@ -1934,17 +2382,17 @@ def refresh_recipe_charts():
     except:
         pass
     
-    top_n = int(dash.range('G5').value or 3)
-    dash.range('B27').value = f"⏳ Creating charts with PROPER time series features (like other repo)..."
+    top_n = int(dash.range('B10').value or 3)
+    dash.range('B33').value = f"⏳ Creating charts with PROPER time series features (like other repo)..."
     
     # Get data
     try:
         df = data_view.range('A3').options(pd.DataFrame, header=1, index=False, expand='table').value
         if df is None or len(df) == 0:
-            dash.range('B27').value = "⚠️ No data loaded. Load Data first!"
+            dash.range('B33').value = "⚠️ No data loaded. Load Data first!"
             return "⚠️ No data"
     except:
-        dash.range('B27').value = "⚠️ No data loaded. Load Data first!"
+        dash.range('B33').value = "⚠️ No data loaded. Load Data first!"
         return "⚠️ No data"
     
     # Get selected targets and models
@@ -1952,11 +2400,11 @@ def refresh_recipe_charts():
     selected_models = get_selected_models()
     
     if len(selected_targets) == 0:
-        dash.range('B27').value = "⚠️ No target variables selected!"
+        dash.range('B33').value = "⚠️ No target variables selected!"
         return "⚠️ No targets"
     
     if len(selected_models) == 0:
-        dash.range('B27').value = "⚠️ No models selected!"
+        dash.range('B33').value = "⚠️ No models selected!"
         return "⚠️ No models"
     
     # Get train/test dates
@@ -1986,7 +2434,7 @@ def refresh_recipe_charts():
         test_start_dt = pd.to_datetime(test_start)
         test_end_dt = pd.to_datetime(test_end)
     except:
-        dash.range('B27').value = "⚠️ Invalid date format in config"
+        dash.range('B33').value = "⚠️ Invalid date format in config"
         return "⚠️ Date error"
     
     # Create charts for each SELECTED variable
@@ -2003,7 +2451,7 @@ def refresh_recipe_charts():
     
     row_position = 30  # Starting position
     
-    dash.range('B27').value = f"⏳ Creating {num_charts} charts with dynamic spacing..."
+    dash.range('B33').value = f"⏳ Creating {num_charts} charts with dynamic spacing..."
     
     for var_idx, target_info in enumerate(selected_targets):
         target_col = target_info['name']
@@ -2055,7 +2503,7 @@ def refresh_recipe_charts():
             # Generate backcast predictions using CUSTOM MODEL LIBRARY
             backcast_preds = {}
             
-            for model_name in selected_models[:15]:  # Limit to 15 for speed
+            for model_name in selected_models:  # Train all selected models
                 try:
                     # Create model from registry
                     model = create_model(model_name)
@@ -2140,13 +2588,13 @@ def refresh_recipe_charts():
                         y_all_target.append(y_full[i])
                     
                     # Get forecast settings from Dashboard
-                    horizons_str = dash.range('G7').value or '1,3,6,12'
+                    horizons_str = dash.range('B11').value or '1,3,6,12'
                     try:
                         forecast_horizons = [int(h.strip()) for h in str(horizons_str).split(',')]
                     except:
                         forecast_horizons = [1, 3, 6, 12]
                     
-                    max_periods = int(dash.range('G8').value or 12)
+                    max_periods = int(dash.range('B12').value or 12)
                     
                     # Train top N models and generate forecasts
                     models_to_train = ['Linear', 'Ridge', 'RandomForest', 'Naive', 'SeasonalNaive'][:top_n]
@@ -2269,11 +2717,11 @@ def refresh_recipe_charts():
                                  width=900,  # Wider for two panels
                                  height=280)  # Good height for visibility
                 
-                dash.range('B27').value = f"⏳ Created chart {var_idx+1}/{len(selected_targets)}: {target_col}"
+                dash.range('B33').value = f"⏳ Created chart {var_idx+1}/{len(selected_targets)}: {target_col}"
                 
             except Exception as e:
                 print(f"Error placing chart for {target_col}: {e}")
-                dash.range('B27').value = f"⚠️ Chart error: {target_col} - {str(e)[:30]}"
+                dash.range('B33').value = f"⚠️ Chart error: {target_col} - {str(e)[:30]}"
             finally:
                 plt.close(fig)
             
@@ -2281,13 +2729,600 @@ def refresh_recipe_charts():
             
         except Exception as e:
             print(f"Error creating chart for {target_col}: {e}")
-            dash.range('B27').value = f"⚠️ Error: {target_col} - {str(e)[:50]}"
+            dash.range('B33').value = f"⚠️ Error: {target_col} - {str(e)[:50]}"
             continue
     
     dash.activate()
-    dash.range('B27').value = f"✅ Created {len(selected_targets)} charts (backcast + forecast) | Top {top_n} models"
+    dash.range('B33').value = f"✅ Created {len(selected_targets)} charts (backcast + forecast) | Top {top_n} models"
     
     return f"✅ Charts created"
+
+
+def load_precomputed_model_list(variable, frequency, top_n=3):
+    """
+    Load top N precomputed models for a variable from detailed Excel files.
+    Returns list of dicts with model info: {model_name, rmse, mae, config}
+    """
+    freq_to_file = {
+        'monthly': 'forecasting_results_Monthly_detailed.xlsx',
+        'quarterly': 'forecasting_results_Quarterly_detailed.xlsx',
+        'yearly': 'forecasting_results_Yearly_detailed.xlsx',
+        'semesterly': 'forecasting_results_Semesterly_detailed.xlsx',
+    }
+    
+    excel_file = freq_to_file.get(str(frequency).lower())
+    if not excel_file:
+        return []
+    
+    file_path = os.path.join('/Users/schalkeanindya/SMFdashboard/FINAL_EXCEL_REPORTS', excel_file)
+    if not os.path.exists(file_path):
+        return []
+    
+    try:
+        import pandas as pd
+        df = pd.read_excel(file_path)
+        
+        # Find variable name column
+        var_col = None
+        for col in ['Variable', 'variable', 'target', 'Target', 'Y Variable']:
+            if col in df.columns:
+                var_col = col
+                break
+        if not var_col:
+            return []
+        
+        # Find RMSE column
+        rmse_col = None
+        for col in ['RMSE', 'rmse', 'RMSE@H=1', 'test_rmse']:
+            if col in df.columns:
+                rmse_col = col
+                break
+        if not rmse_col:
+            return []
+        
+        # Filter for variable
+        var_data = df[df[var_col].astype(str) == str(variable)]
+        if len(var_data) == 0:
+            return []
+        
+        # Sort by RMSE and get top N
+        var_data_sorted = var_data.sort_values(rmse_col).head(top_n)
+        
+        # Debug: print columns to see what we're working with
+        print(f"DEBUG - Columns: {df.columns.tolist()}")
+        print(f"DEBUG - First row: {var_data_sorted.iloc[0]}")
+        
+        # Build result list
+        models = []
+        for idx, row in var_data_sorted.iterrows():
+            # Try multiple possible model name columns
+            model_name = ''
+            
+            # First, try common model column names
+            for col_name in ['Model', 'model_name', 'Model Type', 'plugin', 'Plugin', 'model', 'Member', 'member']:
+                if col_name in df.columns:
+                    val = row.get(col_name)
+                    if val is not None:
+                        model_name = str(val).strip()
+                        if model_name and model_name != 'nan' and model_name.lower() != 'none':
+                            break
+            
+            # If no model name found, try to extract from ID/Member column
+            if not model_name:
+                # Look for columns with ID or member information
+                for col in df.columns:
+                    if 'id' in col.lower() or 'member' in col.lower() or 'variant' in col.lower():
+                        val = row.get(col)
+                        if val is not None:
+                            # Try to extract model type from ID (e.g., "XGBoost-1459..." -> "XGBoost")
+                            id_str = str(val).strip()
+                            if '-' in id_str:
+                                model_name = id_str.split('-')[0]
+                            else:
+                                model_name = id_str
+                            if model_name:
+                                break
+            
+            # Last resort: use indices as fallback but try to get ANY info
+            if not model_name:
+                # Print what we have to debug
+                print(f"DEBUG - Row data: {row.to_dict()}")
+                model_name = f"Model_{idx}"  # Fallback
+            
+            model_info = {
+                'model_name': model_name or f'Unknown_{idx}',
+                'rmse': float(row.get(rmse_col, 0)),
+                'mae': float(row.get('MAE', 0)) if 'MAE' in df.columns else 0.0,
+                'r2': float(row.get('R²', 0)) if 'R²' in df.columns else (float(row.get('R2', 0)) if 'R2' in df.columns else 0.0),
+            }
+            models.append(model_info)
+        
+        return models
+    except Exception as e:
+        print(f"Error loading precomputed models: {e}")
+        return []
+
+
+def show_precomputed_best_models():
+    """Show best models from precomputed Excel files based on user selection"""
+    wb = xw.Book.caller()
+    dash = wb.sheets['Dashboard']
+    
+    # Get selected variables (columns D-E, rows 11-20)
+    selected_vars = []
+    for row in range(11, 21):
+        checkbox = dash.range(f'D{row}').value
+        if checkbox == '✓':
+            var_name = dash.range(f'E{row}').value
+            if var_name:
+                selected_vars.append(var_name)
+    
+    # Get selected frequencies (columns F-G, rows 11-16)
+    selected_freqs = []
+    for row in range(11, 17):
+        checkbox = dash.range(f'F{row}').value
+        if checkbox == '✓':
+            freq = dash.range(f'G{row}').value
+            if freq:
+                selected_freqs.append(freq)
+    
+    if not selected_vars or not selected_freqs:
+        dash.range('B33').value = "⚠️ Please select variables and frequencies first"
+        return "⚠️ No selection"
+    
+    dash.range('B33').value = "⏳ Loading precomputed results..."
+    
+    # Create or get Results sheet
+    if 'Precomputed_Results' not in [s.name for s in wb.sheets]:
+        results_sheet = wb.sheets.add('Precomputed_Results', after=dash)
+    else:
+        results_sheet = wb.sheets['Precomputed_Results']
+    
+    results_sheet.clear()
+    
+    # Frequency to file mapping
+    freq_to_file = {
+        'monthly': 'forecasting_results_Monthly_detailed.xlsx',
+        'quarterly': 'forecasting_results_Quarterly_detailed.xlsx',
+        'yearly': 'forecasting_results_Yearly_detailed.xlsx',
+        'semesterly': 'forecasting_results_Semesterly_detailed.xlsx',
+        'weekly': None  # No weekly detailed file yet
+    }
+    
+    current_row = 1
+    results_sheet.range('A1').value = "🏆 PRE-COMPUTED BEST MODELS"
+    results_sheet.range('A1').font.bold = True
+    results_sheet.range('A1').font.size = 14
+    results_sheet.range('A1:F1').merge()
+    results_sheet.range('A1').color = (70, 130, 180)
+    results_sheet.range('A1').font.color = (255, 255, 255)
+    current_row = 3
+    
+    for freq in selected_freqs:
+        excel_file = freq_to_file.get(freq.lower())
+        if not excel_file:
+            continue
+            
+        file_path = os.path.join('/Users/schalkeanindya/SMFdashboard/FINAL_EXCEL_REPORTS', excel_file)
+        if not os.path.exists(file_path):
+            results_sheet.range(f'A{current_row}').value = f"⚠️ {freq.capitalize()} results file not found"
+            current_row += 2
+            continue
+        
+        # Read Excel file
+        try:
+            import pandas as pd
+            df = pd.read_excel(file_path)
+            
+            # Display frequency header
+            results_sheet.range(f'A{current_row}').value = f"📊 {freq.upper()} FREQUENCY"
+            results_sheet.range(f'A{current_row}').font.bold = True
+            results_sheet.range(f'A{current_row}').font.size = 12
+            results_sheet.range(f'A{current_row}').color = (220, 220, 220)
+            current_row += 1
+            
+            # Get available columns
+            available_columns = df.columns.tolist()
+            
+            # Find variable name column (try common names)
+            var_col = None
+            for col in ['Variable', 'variable', 'target', 'Target', 'Y Variable']:
+                if col in available_columns:
+                    var_col = col
+                    break
+            
+            # For each selected variable, find best models
+            for var in selected_vars:
+                # Filter data for this variable
+                var_data = df[df[var_col] == var] if var_col else df[df.iloc[:, 0] == var]
+                
+                if len(var_data) == 0:
+                    continue
+                
+                # Find RMSE column
+                rmse_col = None
+                for col in ['RMSE', 'rmse', 'RMSE@H=1', 'test_rmse']:
+                    if col in available_columns:
+                        rmse_col = col
+                        break
+                
+                if not rmse_col:
+                    continue
+                
+                # Sort by RMSE (lower is better)
+                var_data_sorted = var_data.sort_values(rmse_col)
+                
+                # Display top 5 models for this variable
+                results_sheet.range(f'A{current_row}').value = f"🏆 {var}"
+                results_sheet.range(f'A{current_row}').font.bold = True
+                results_sheet.range(f'A{current_row}').color = (220, 240, 255)
+                current_row += 1
+                
+                # Header row
+                headers = ['Rank', 'Model']
+                if 'Strategy' in available_columns:
+                    headers.append('Strategy')
+                headers.extend([rmse_col, 'MAE', 'R²'])
+                
+                results_sheet.range(f'A{current_row}').value = [headers]
+                results_sheet.range(f'A{current_row}').expand('right').font.bold = True
+                results_sheet.range(f'A{current_row}').expand('right').color = (200, 220, 255)
+                current_row += 1
+                
+                # Top 5 models
+                for rank, (idx, row) in enumerate(var_data_sorted.head(5).iterrows(), 1):
+                    row_data = [rank]
+                    if 'Model' in available_columns:
+                        row_data.append(row.get('Model', ''))
+                    elif 'model_name' in available_columns:
+                        row_data.append(row.get('model_name', ''))
+                    else:
+                        row_data.append(row.iloc[1] if len(row) > 1 else '')
+                    
+                    if 'Strategy' in available_columns:
+                        row_data.append(row.get('Strategy', ''))
+                    
+                    row_data.append(row.get(rmse_col, ''))
+                    row_data.append(row.get('MAE', ''))
+                    row_data.append(row.get('R²', ''))
+                    
+                    results_sheet.range(f'A{current_row}').value = [row_data]
+                    
+                    # Highlight best model
+                    if rank == 1:
+                        results_sheet.range(f'A{current_row}').expand('right').color = (200, 255, 200)
+                    
+                    current_row += 1
+                
+                current_row += 1  # Space between variables
+            
+            current_row += 1  # Space between frequencies
+            
+        except Exception as e:
+            results_sheet.range(f'A{current_row}').value = f"⚠️ Error reading {freq} file: {str(e)[:50]}"
+            current_row += 2
+            continue
+    
+    results_sheet.activate()
+    dash.range('B33').value = f"✅ Loaded precomputed results for {len(selected_vars)} variables × {len(selected_freqs)} frequencies"
+    
+    return "✅ Results displayed"
+
+
+def btn_show_best_models():
+    """Button: Show Best Models from Precomputed Results"""
+    wb = xw.Book.caller()
+    dash = wb.sheets['Dashboard']
+    msg = show_precomputed_best_models()
+    return msg
+
+
+def show_precomputed_backcast_results():
+    """Populate Backcast_Results with precomputed detailed results based on user selections."""
+    wb = xw.Book.caller()
+    dash = wb.sheets['Dashboard']
+    
+    # Ensure Backcast_Results sheet exists
+    if 'Backcast_Results' not in [s.name for s in wb.sheets]:
+        backcast_sheet = wb.sheets.add('Backcast_Results', after=dash)
+    else:
+        backcast_sheet = wb.sheets['Backcast_Results']
+    backcast_sheet.clear()
+    
+    # Read selections from Dashboard (updated columns)
+    selected_vars = []
+    for row in range(11, 21):
+        if dash.range(f'D{row}').value == '✓':
+            var_name = dash.range(f'E{row}').value
+            if var_name:
+                selected_vars.append(var_name)
+    
+    selected_freqs = []
+    for row in range(11, 17):
+        if dash.range(f'F{row}').value == '✓':
+            freq = dash.range(f'G{row}').value
+            if freq:
+                selected_freqs.append(freq)
+    
+    if not selected_vars or not selected_freqs:
+        dash.range('B33').value = "⚠️ Please select variables and frequencies first"
+        return "⚠️ No selection"
+    
+    dash.range('B33').value = "⏳ Loading precomputed detailed results into Backcast_Results..."
+    
+    # Frequency mapping
+    freq_to_file = {
+        'monthly': 'forecasting_results_Monthly_detailed.xlsx',
+        'quarterly': 'forecasting_results_Quarterly_detailed.xlsx',
+        'yearly': 'forecasting_results_Yearly_detailed.xlsx',
+        'semesterly': 'forecasting_results_Semesterly_detailed.xlsx',
+        'weekly': None,
+    }
+    base_dir = '/Users/schalkeanindya/SMFdashboard/FINAL_EXCEL_REPORTS'
+    
+    # Header
+    backcast_sheet.range('A1').value = "📘 PRECOMPUTED BACKCAST RESULTS"
+    backcast_sheet.range('A1').font.bold = True
+    backcast_sheet.range('A1').font.size = 14
+    backcast_sheet.range('A1:H1').merge()
+    backcast_sheet.range('A1').color = (70, 130, 180)
+    backcast_sheet.range('A1').font.color = (255, 255, 255)
+    current_row = 3
+    
+    import pandas as pd
+    
+    for freq in selected_freqs:
+        freq_row = 3  # Track row for this frequency
+        excel_file = freq_to_file.get(str(freq).lower())
+        if not excel_file:
+            continue
+        file_path = os.path.join(base_dir, excel_file)
+        if not os.path.exists(file_path):
+            backcast_sheet.range(f'A{current_row}').value = f"⚠️ {freq} detailed file not found"
+            current_row += 2
+            continue
+        
+        try:
+            df = pd.read_excel(file_path)
+        except Exception as e:
+            backcast_sheet.range(f'A{current_row}').value = f"⚠️ Error reading {excel_file}: {str(e)[:80]}"
+            current_row += 2
+            continue
+        
+        # Try to detect columns
+        cols = df.columns.tolist()
+        var_col = None
+        for c in ['Variable', 'variable', 'Target', 'target', 'Y Variable']:
+            if c in cols:
+                var_col = c
+                break
+        rmse_col = None
+        for c in ['RMSE', 'rmse', 'RMSE@H=1', 'test_rmse']:
+            if c in cols:
+                rmse_col = c
+                break
+        mae_col = 'MAE' if 'MAE' in cols else ('mae' if 'mae' in cols else None)
+        r2_col = 'R²' if 'R²' in cols else ('R2' if 'R2' in cols else ('r2' if 'r2' in cols else None))
+        
+        # Try to find model column with multiple possible names
+        model_col = None
+        for c in ['Model', 'model_name', 'Model Type', 'plugin', 'Plugin', 'model', 'Member', 'member', 'Model_Name', 'Type']:
+            if c in cols:
+                model_col = c
+                break
+        
+        strategy_col = 'Strategy' if 'Strategy' in cols else None
+        
+        # Debug: show what columns we found
+        print(f"🔍 Detected columns: model_col={model_col}, rmse_col={rmse_col}, mae_col={mae_col}, r2_col={r2_col}")
+        print(f"📋 All columns: {cols[:10]}...")
+        
+        # Frequency header
+        backcast_sheet.range(f'A{current_row}').value = f"📊 {str(freq).upper()}"
+        backcast_sheet.range(f'A{current_row}').font.bold = True
+        backcast_sheet.range(f'A{current_row}').color = (220, 220, 220)
+        current_row += 1
+        
+        # Store all variable data
+        var_data_list = []
+        
+        for var_idx, var in enumerate(selected_vars):
+            # Filter for variable
+            if var_col:
+                var_df = df[df[var_col].astype(str) == str(var)]
+            else:
+                var_df = df[df.iloc[:, 0].astype(str) == str(var)]
+            if len(var_df) == 0:
+                continue
+            
+            # Filter to show only rows where RMSE is NOT null
+            if rmse_col and rmse_col in var_df.columns:
+                var_df = var_df[var_df[rmse_col].notna()]
+            
+            if len(var_df) == 0:
+                continue
+            
+            # Sort by RMSE if available
+            if rmse_col and rmse_col in var_df.columns:
+                var_df_sorted = var_df.sort_values(rmse_col)
+            else:
+                var_df_sorted = var_df.copy()
+            
+            var_data_list.append({
+                'var': var,
+                'var_idx': var_idx,
+                'data': var_df_sorted,
+                # A=65, M=77 (skip to M for second variable)
+                'start_col': chr(65 + (var_idx * 12))  # Skip 12 columns for each variable
+            })
+        
+        # First pass: show rankings side-by-side
+        for var_info in var_data_list:
+            var = var_info['var']
+            var_idx = var_info['var_idx']
+            var_df_sorted = var_info['data']
+            var_start_col = var_info['start_col']
+            
+            # Use current_row to place horizontally (all variables start at same row)
+            display_row = current_row
+            
+            # Section header (horizontal placement)
+            backcast_sheet.range(f'{var_start_col}{display_row}').value = f"📊 {var}"
+            backcast_sheet.range(f'{var_start_col}{display_row}').font.bold = True
+            backcast_sheet.range(f'{var_start_col}{display_row}').font.size = 12
+            backcast_sheet.range(f'{var_start_col}{display_row}').color = (240, 248, 255)
+            display_row += 1
+            
+            # Group by model and get best RMSE for each unique model
+            unique_models = {}
+            for _, r in var_df_sorted.iterrows():
+                # Extract model name with multiple fallbacks
+                model_name = 'Unknown'
+                if model_col:
+                    model_name = str(r.get(model_col, 'Unknown')).strip()
+                    if model_name == 'Unknown' or model_name == 'nan' or model_name == '':
+                        model_name = 'Unknown'
+                
+                # If still unknown, try to extract from other columns
+                if model_name == 'Unknown':
+                    # Try Model_ID column (e.g., "Naive-955-v55-085910" -> "Naive")
+                    for col in var_df_sorted.columns:
+                        if 'id' in col.lower() or 'member' in col.lower():
+                            id_val = r.get(col)
+                            if pd.notna(id_val):
+                                id_str = str(id_val).strip()
+                                if '-' in id_str:
+                                    model_name = id_str.split('-')[0]
+                                    break
+                
+                rmse_val = r.get(rmse_col, None)
+                if rmse_val is None or pd.isna(rmse_val):
+                    continue
+                
+                # Keep the first (best) RMSE for each model
+                if model_name not in unique_models:
+                    unique_models[model_name] = r
+            
+            # Sort unique models by RMSE
+            models_list = list(unique_models.items())
+            if rmse_col:
+                models_list.sort(key=lambda x: float(x[1].get(rmse_col, float('inf'))))
+            
+            # Summary (Top N = 5 unique models)
+            headers = ['Rank', 'Model Name']
+            if strategy_col: headers.append('Strategy')
+            if rmse_col: headers.append(rmse_col)
+            if mae_col: headers.append(mae_col)
+            # R² removed (many missing)
+            backcast_sheet.range(f'{var_start_col}{display_row}').value = [headers]
+            backcast_sheet.range(f'{var_start_col}{display_row}').expand('right').font.bold = True
+            backcast_sheet.range(f'{var_start_col}{display_row}').expand('right').color = (200, 220, 255)
+            display_row += 1
+            
+            for rank, (model_name, r) in enumerate(models_list[:5], 1):
+                row_vals = [rank, model_name]
+                if strategy_col: row_vals.append(r.get(strategy_col, ''))
+                if rmse_col: 
+                    rmse_val = r.get(rmse_col, '')
+                    row_vals.append(rmse_val if pd.notna(rmse_val) else '')
+                if mae_col: 
+                    mae_val = r.get(mae_col, '')
+                    row_vals.append(mae_val if pd.notna(mae_val) else '')
+                # R² removed
+                
+                backcast_sheet.range(f'{var_start_col}{display_row}').value = [row_vals]
+                if rank == 1:
+                    backcast_sheet.range(f'{var_start_col}{display_row}').expand('right').color = (200, 255, 200)
+                display_row += 1
+            
+            # Track the maximum row used across all variables for next frequency section
+            if display_row > freq_row:
+                freq_row = display_row
+        
+        # After rankings, find max row and continue with detailed results below
+        current_row = freq_row + 2
+        
+        # Second pass: show detailed results side-by-side
+        for var_info in var_data_list:
+            var = var_info['var']
+            var_start_col = var_info['start_col']
+            var_df_sorted = var_info['data']
+            
+            detailed_row = current_row
+            backcast_sheet.range(f'{var_start_col}{detailed_row}').value = "📄 Detailed"
+            backcast_sheet.range(f'{var_start_col}{detailed_row}').font.bold = True
+            backcast_sheet.range(f'{var_start_col}{detailed_row}').font.italic = True
+            detailed_row += 1
+            
+            try:
+                # Show key columns: Model, Horizon, RMSE, MAE, Forecast, Actual
+                key_cols = []
+                if model_col: key_cols.append(model_col)
+                if 'Horizon' in var_df_sorted.columns: key_cols.append('Horizon')
+                if rmse_col: key_cols.append(rmse_col)
+                if mae_col: key_cols.append(mae_col)
+                
+                # Add forecast and actual columns if they exist
+                for col in var_df_sorted.columns:
+                    if 'forecast' in col.lower() and col not in key_cols:
+                        key_cols.append(col)
+                    if 'actual' in col.lower() and col not in key_cols:
+                        key_cols.append(col)
+                
+                if key_cols:
+                    backcast_sheet.range(f'{var_start_col}{detailed_row}').value = [key_cols]
+                    backcast_sheet.range(f'{var_start_col}{detailed_row}').expand('right').font.bold = True
+                    backcast_sheet.range(f'{var_start_col}{detailed_row}').expand('right').color = (220, 230, 240)
+                    detailed_row += 1
+                    
+                    # Show ALL rows (not limited)
+                    for _, rr in var_df_sorted.iterrows():
+                        row_data = []
+                        for col in key_cols:
+                            val = rr.get(col)
+                            if pd.notna(val):
+                                # Format numbers with comma as decimal separator
+                                if isinstance(val, (int, float)):
+                                    row_data.append(f"{val:.6f}".replace('.', ','))
+                                else:
+                                    row_data.append(str(val))
+                            else:
+                                row_data.append('')
+                        backcast_sheet.range(f'{var_start_col}{detailed_row}').value = [row_data]
+                        detailed_row += 1
+                    
+                    if detailed_row > freq_row:
+                        freq_row = detailed_row
+            except Exception as e:
+                backcast_sheet.range(f'{var_start_col}{detailed_row}').value = f"⚠️ Error: {str(e)[:50]}"
+                detailed_row += 1
+                if detailed_row > freq_row:
+                    freq_row = detailed_row
+        
+        # Advance to next frequency section
+        current_row = freq_row + 3
+    
+    try:
+        # Autofit all columns up to where variables are placed
+        max_col_idx = 65 + (len(selected_vars) * 6)
+        if max_col_idx > 90:  # More than Z
+            cols = 'A:Z'
+        else:
+            cols = f'A:{chr(max_col_idx)}'
+        backcast_sheet.range(cols).columns.autofit()
+    except:
+        pass
+    
+    backcast_sheet.activate()
+    dash.range('B33').value = "✅ Precomputed detailed results shown in Backcast_Results"
+    return "✅ Precomputed backcast displayed"
+
+
+def btn_show_precomputed_backcast():
+    wb = xw.Book.caller()
+    dash = wb.sheets['Dashboard']
+    msg = show_precomputed_backcast_results()
+    return msg
 
 
 def btn_recipe_backcast():
@@ -2322,6 +3357,14 @@ def btn_recipe_forecast():
     return msg
 
 
+def btn_forecast_with_precomputed():
+    """Button: Run Forecast with Precomputed Models (NO training)"""
+    wb = xw.Book.caller()
+    dash = wb.sheets['Dashboard']
+    msg = run_forecast_with_precomputed_models()
+    return msg
+
+
 def btn_clear_results():
     """Button: Clear All Results (Backcast, Forecast, Charts)"""
     wb = xw.Book.caller()
@@ -2353,12 +3396,12 @@ def btn_clear_results():
         except:
             pass
         
-        dash.range('B27').value = "✅ All results cleared! Ready to run new analysis."
+        dash.range('B33').value = "✅ All results cleared! Ready to run new analysis."
         
         return "✅ Results cleared"
         
     except Exception as e:
-        dash.range('B27').value = f"⚠️ Error clearing results: {str(e)[:50]}"
+        dash.range('B33').value = f"⚠️ Error clearing results: {str(e)[:50]}"
         return f"⚠️ Error: {str(e)[:50]}"
 
 
